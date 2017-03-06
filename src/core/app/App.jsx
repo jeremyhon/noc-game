@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Navbar from '../nav/Navbar'
+import Navbar from '../nav'
 import './App.css'
 
 class App extends React.Component {

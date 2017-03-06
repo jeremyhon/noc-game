@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import App from './core/app/App'
 import Intern from './intern/Intern'
 import NotFound from './notfound/NotFound'
 import About from './about/About'
 import Company from './company/Company'
 import './index.css'
+
+injectTapEventPlugin()
 
 ReactDOM.render(
   <Router history={hashHistory}>

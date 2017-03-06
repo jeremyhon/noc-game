@@ -7,9 +7,15 @@ import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 
 export default class Menu extends React.Component {
   render() {
+    const MenuButton = (
+      <IconButton>
+        <MenuIcon color="white" />
+      </IconButton>
+    )
+
     return (
       <IconMenu
-        iconButtonElement={<IconButton><MenuIcon /></IconButton>}
+        iconButtonElement={MenuButton}
         anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
         targetOrigin={{ horizontal: 'left', vertical: 'top' }}
       >

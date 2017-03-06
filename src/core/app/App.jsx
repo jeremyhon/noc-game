@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import logo from './logo.svg';
-import Navbar from '../nav/Navbar'
+import Navbar from '../nav/Navbar';
 import './App.css';
 
 class App extends Component {
@@ -9,10 +8,8 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <Navbar />
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
+          <Navbar currentPage={this.props.location.pathname}/>
+          {this.props.children}
         </div>
       </MuiThemeProvider>
     );

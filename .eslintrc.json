@@ -1,10 +1,16 @@
 {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "plugins": [
-        "react",
-        "jsx-a11y",
-        "import"
+      "react",
+      "jsx-a11y",
+      "import"
     ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "commonjs": true
+    },
     "rules": {
       "react/prefer-stateless-function": "warn",
       "semi": ["error", "never"]

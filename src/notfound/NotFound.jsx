@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react'
 
 export default class NotFound extends React.Component {
   static propTypes = {
@@ -10,6 +10,6 @@ export default class NotFound extends React.Component {
       <div>
         {"Oops! This page doesn't exist!"}
       </div>
-    );
+    )
   }
 }

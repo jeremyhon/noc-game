@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
-const About = React.createClass({
-  render () {
+export default class About extends React.Component {
+  render() {
     return (
       <div>
         Created by Jeremy Hon
@@ -9,6 +9,4 @@ const About = React.createClass({
       </div>
     )
   }
-})
-
-export default About
+}

@@ -1,10 +1,11 @@
-import React, { PropTypes } from 'react';
-import AppBar from 'material-ui/AppBar';
-import './Navbar.scss';
+import React, { PropTypes } from 'react'
+import AppBar from 'material-ui/AppBar'
+import Menu from './Menu'
+import './Navbar.scss'
 
 class Navbar extends React.Component {
   static propTypes = {
-    currentPage: PropTypes.string
+    currentPage: PropTypes.string.isRequired,
   }
 
   onTap = () => {
@@ -12,14 +13,11 @@ class Navbar extends React.Component {
   }
 
   render() {
-    let currentPage = this.props.currentPage
-    console.log(currentPage)
-
     return (
       <AppBar
         className="navbar"
         title="Intern Manager"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
+        iconElementLeft={<Menu />}
         onRightIconButtonTouchTap={this.onTap}
       />
     )

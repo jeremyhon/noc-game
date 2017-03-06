@@ -124,7 +124,8 @@ module.exports = {
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/
           // directory for faster rebuilds.
-          cacheDirectory: true
+          cacheDirectory: true,
+          presets: ['es2015', 'stage-0', 'react'],
         }
       },
       // "postcss" loader applies autoprefixer to our CSS.
@@ -159,10 +160,9 @@ module.exports = {
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ]
   },
-  // Point ESLint to our predefined config.
   eslint: {
-
-    cache: true
+    failOnWarning: false,
+    failOnError: true
   },
   // We use PostCSS for autoprefixing only.
   postcss: function() {

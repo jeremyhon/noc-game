@@ -1,11 +1,26 @@
-import React from 'react'
-import IconMenu from 'material-ui/IconMenu'
-import MenuItem from 'material-ui/MenuItem'
-import Divider from 'material-ui/Divider'
-import IconButton from 'material-ui/IconButton'
-import MenuIcon from 'material-ui/svg-icons/navigation/menu'
+import React, { PropTypes } from "react"
+import { Link } from "react-router"
+import IconMenu from "material-ui/IconMenu"
+import MenuItem from "material-ui/MenuItem"
+import Divider from "material-ui/Divider"
+import IconButton from "material-ui/IconButton"
+import MenuIcon from "material-ui/svg-icons/navigation/menu"
 
 export default class Menu extends React.Component {
+  hideButton = linkedPage => this.props.currentPage === linkedPage
+
+  renderButton = (text, url) => {
+    if (this.props.currentPage !== url) {
+      return (
+        <MenuItem
+          containerElement={<Link to={url} />}
+          primaryText={text}
+        />
+      )
+    }
+    return null
+  }
+
   render() {
     const MenuButton = (
       <IconButton>
@@ -16,17 +31,18 @@ export default class Menu extends React.Component {
     return (
       <IconMenu
         iconButtonElement={MenuButton}
-        anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
-        targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+        anchorOrigin={{ horizontal: "left", vertical: "top" }}
+        targetOrigin={{ horizontal: "left", vertical: "top" }}
       >
-        <MenuItem primaryText="Interns" />
-        <MenuItem primaryText="Company" />
+        {this.renderButton("Interns", "/")}
+        {this.renderButton("Companies", "/companies")}
         <Divider />
-        <MenuItem primaryText="About" />
+        {this.renderButton("About", "/about")}
       </IconMenu>
     )
   }
 }
 
 Menu.propTypes = {
+  currentPage: PropTypes.string.isRequired,
 }

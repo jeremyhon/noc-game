@@ -1,1 +1,1 @@
-export default from "./Intern"
+export default from './Intern'

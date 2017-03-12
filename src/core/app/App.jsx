@@ -1,7 +1,7 @@
-import React, { PropTypes } from "react"
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
-import Navbar from "../nav"
-import "./App.css"
+import React, { PropTypes } from 'react'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Navbar from '../nav'
+import './App.scss'
 
 class App extends React.Component {
   static propTypes = {

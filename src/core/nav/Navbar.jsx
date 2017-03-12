@@ -1,7 +1,7 @@
-import React, { PropTypes } from "react"
-import AppBar from "material-ui/AppBar"
-import Menu from "./Menu"
-import "./Navbar.scss"
+import React, { PropTypes } from 'react'
+import AppBar from 'material-ui/AppBar'
+import Menu from './Menu'
+import './Navbar.scss'
 
 class Navbar extends React.Component {
   static propTypes = {

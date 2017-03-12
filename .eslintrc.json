@@ -14,6 +14,7 @@
     "rules": {
       "react/prefer-stateless-function": "warn",
       "semi": ["error", "never"],
-      "quotes": ["warn", "double", {"allowTemplateLiterals": true,"avoidEscape": true}]
+      "quotes": ["warn", "single", {"allowTemplateLiterals": true,"avoidEscape": true}],
+      "arrow-parens": ["error", "always"]
     }
 }

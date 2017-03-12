@@ -1,13 +1,13 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { Router, Route, IndexRoute, hashHistory } from "react-router"
-import injectTapEventPlugin from "react-tap-event-plugin"
-import App from "./core/app"
-import Intern from "./intern"
-import NotFound from "./notfound"
-import About from "./about"
-import Company from "./company"
-import "./index.css"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import App from './core/app'
+import Intern from './intern'
+import NotFound from './notfound'
+import About from './about'
+import Company from './company'
+import './index.css'
 
 injectTapEventPlugin()
 
@@ -20,4 +20,4 @@ ReactDOM.render(
       <Route path="*" component={NotFound} />
     </Route>
   </Router>
-, document.getElementById("root"))
+, document.getElementById('root'))

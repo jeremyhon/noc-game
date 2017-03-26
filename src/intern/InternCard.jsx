@@ -11,7 +11,6 @@ const renderGenderIcon = (gender) => {
 }
 
 const renderTitle = (name, gender) => (<span>{name} {renderGenderIcon(gender)}</span>)
-
 const renderSkills = (skills) => map(skills, (skill, key) => (<li key={key}>{skill}</li>))
 
 const InternCard = (props) => (

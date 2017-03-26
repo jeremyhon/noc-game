@@ -21,6 +21,9 @@ var prompt = require('react-dev-utils/prompt');
 var fs = require('fs');
 var config = require('../config/webpack.config.dev');
 var paths = require('../config/paths');
+var path = require('path');
+
+process.env.NODE_PATH = path.resolve(__dirname, '../src');
 
 var useYarn = fs.existsSync(paths.yarnLockFile);
 var cli = useYarn ? 'yarn' : 'npm';

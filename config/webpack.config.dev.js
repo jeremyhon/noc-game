@@ -13,9 +13,8 @@ var publicUrl = '';
 
 var env = getClientEnvironment(publicUrl);
 
-console.log(paths.nodePaths);
-
 module.exports = {
+  bail: true,
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
   devtool: 'cheap-module-source-map',
@@ -32,7 +31,10 @@ module.exports = {
     publicPath: publicPath
   },
   resolve: {
-    modules: paths.nodePaths,
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'src')
+    ],
     extensions: ['.js', '.json', '.jsx'],
     alias: {
       'react-native': 'react-native-web'
@@ -72,7 +74,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
-          presets: ['es2015', 'stage-0', 'react'],
+          presets: ['latest', 'stage-0', 'react'],
         }
       },
       {

@@ -32,8 +32,9 @@ module.exports = {
   },
   resolve: {
     modules: [
-      'node_modules',
-      path.resolve(__dirname, 'src')
+      path.resolve('../noc-game'),
+      path.resolve('./node_modules'),
+      path.resolve('./src')
     ],
     extensions: ['.js', '.json', '.jsx'],
     alias: {
@@ -50,7 +51,7 @@ module.exports = {
         loader: 'eslint-loader',
         options: {
           failOnWarning: false,
-          failOnError: true
+          failOnError: false
         },
       },
       {

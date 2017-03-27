@@ -11,6 +11,13 @@
       "node": true,
       "commonjs": true
     },
+    "settings": {
+      "import/resolver":{
+        "webpack":{
+          "config": "config/webpack.config.dev.js"
+        }
+      }
+    },
     "rules": {
       "react/prefer-stateless-function": "warn",
       "semi": ["error", "never"],

@@ -10,12 +10,27 @@ export default class Intern extends React.Component {
       students: [{
         name: 'Barack Obama',
         gender: 'M',
+        skills: {
+          technical: 6,
+          business: 8,
+          design: 5,
+        },
       }, {
         name: 'Donald Trump',
         gender: 'M',
+        skills: {
+          technical: 3,
+          business: 3,
+          design: 5,
+        },
       }, {
         name: 'Angela Merkel',
         gender: 'F',
+        skills: {
+          technical: 8,
+          business: 4,
+          design: 6,
+        },
       }],
     }
   }

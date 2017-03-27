@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Card, CardTitle, CardText } from 'material-ui/Card'
 import map from 'lodash/map'
-import skillPropType from '../lib/skill'
+import skillsPropType from '../skill/multiPropType'
 
 const renderGenderIcon = (gender) => {
   if (gender === 'M') {
@@ -27,7 +27,7 @@ const InternCard = (props) => (
 InternCard.propTypes = {
   name: PropTypes.string.isRequired,
   gender: PropTypes.oneOf(['M', 'F']).isRequired,
-  skills: PropTypes.arrayOf(skillPropType).isRequired,
+  skills: skillsPropType,
 }
 
 export default InternCard

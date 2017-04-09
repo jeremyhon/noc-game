@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Card, CardTitle, CardText } from 'material-ui/Card'
-import map from 'lodash/map'
+// import map from 'lodash/map'
+import SkillsContainer from '../skill/SkillsContainer'
 import skillsPropType from '../skill/multiPropType'
 
 const renderGenderIcon = (gender) => {
@@ -11,15 +12,13 @@ const renderGenderIcon = (gender) => {
 }
 
 const renderTitle = (name, gender) => (<span>{name} {renderGenderIcon(gender)}</span>)
-const renderSkills = (skills) => map(skills, (skill, key) => (<li key={key}>{skill}</li>))
+// const renderSkills = (skills) => map(skills, (skill, key) => (<li key={key}>{skill}</li>))
 
 const InternCard = (props) => (
   <Card className="intern-card">
     <CardTitle title={renderTitle(props.name, props.gender)} />
     <CardText>
-      <ul>
-        {renderSkills(props.skills)}
-      </ul>
+      <SkillsContainer skills={props.skills} />
     </CardText>
   </Card>
 )

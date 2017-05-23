@@ -2,6 +2,11 @@
   "name": "noc-game",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "./scripts/start.sh",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom"
+  },
   "dependencies": {
     "babel-preset-latest": "^6.24.0",
     "classnames": "^2.2.5",
@@ -57,14 +62,9 @@
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "^2.3.2",
-    "webpack-dev-server": "1.16.2",
+    "webpack-dev-server": "^2.4.5",
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.2"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -89,10 +89,5 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     }
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
   }
 }

@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import map from 'lodash/map'
 import startCase from 'lodash/startCase'
 import classnames from 'classnames'
 import skillsPropType from '../skill/multiPropType'
-import './SkillsContainer.scss'
+import './SkillsContainer.css'
 
 const renderSkills = (skills) => map(skills,
   (skill, key) => (

@@ -9,7 +9,7 @@ import Intern from './intern'
 import NotFound from './notfound'
 import About from './about'
 import Company from './company'
-import './index.scss'
+import './index.css'
 
 injectTapEventPlugin()
 

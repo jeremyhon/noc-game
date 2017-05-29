@@ -1,7 +1,7 @@
 import React from 'react'
 import map from 'lodash/map'
 import InternCard from './InternCard'
-import './Intern.scss'
+import './Intern.css'
 
 export default class Intern extends React.Component {
   constructor(props) {

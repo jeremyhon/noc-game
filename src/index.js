@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import { AppContainer } from 'react-hot-loader'
+import registerServiceWorker from './registerServiceWorker';
 
 import App from './core/app'
 import Intern from './intern'
@@ -24,16 +24,15 @@ const BaseApp = () => (
   </Router>
 )
 
-const render = (Component) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>
-  , document.getElementById('root'))
-}
+ReactDOM.render(
+  <BaseApp />
+, document.getElementById('root'))
 
-if (module.hot) {
-  module.hot.accept('./core/App', () => {
-    render(BaseApp)
-  })
-}
+// const render = (Component) => {
+//   ReactDOM.render(
+//     <AppContainer>
+//       <Component />
+//     </AppContainer>
+//   , document.getElementById('root'))
+// }
+registerServiceWorker()

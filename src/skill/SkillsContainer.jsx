@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import map from 'lodash/map'
 import startCase from 'lodash/startCase'
 import classnames from 'classnames'
-import skillsPropType from '../skill/multiPropType'
+import skillsPropType from './multiPropType'
 import './SkillsContainer.css'
 
 const renderSkills = (skills) => map(skills,

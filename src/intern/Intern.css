@@ -1,9 +1,6 @@
 .intern {
-  padding: 1em;
-
-  .intern-card {
+  padding: 1em; }
+  .intern .intern-card {
     width: 20em;
     margin: auto;
-    margin-top: 1em;
-  }
-}
+    margin-top: 1em; }

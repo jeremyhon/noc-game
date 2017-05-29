@@ -1,19 +1,13 @@
-.skill-container{
-  p {
-    margin: 0;
-    display: flex;
-  }
+.skill-container p {
+  margin: 0;
+  display: flex; }
 
-  span {
-    text-align: left;
-    width: 50%;
-  }
+.skill-container span {
+  text-align: left;
+  width: 50%; }
 
-  .skill-name {
-    padding-left: 5em;
-  }
+.skill-container .skill-name {
+  padding-left: 5em; }
 
-  .skill-value {
-    padding-left: 1em;
-  }
-}
+.skill-container .skill-value {
+  padding-left: 1em; }

@@ -1,7 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
 import Card from '../core/card/Card'
-import SkillsContainer from '../stats/SkillsContainer'
 import './Company.css'
 
 export default class Company extends React.Component {

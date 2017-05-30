@@ -1,18 +1,6 @@
-let lastRender = 0
+export let globalTime = 0
 
-const update = (progress) => {
+export const loop = () => {
+  globalTime = performance.now()
+  console.log(globalTime)
 }
-
-const draw = () => {
-
-}
-
-const loop = (timestamp) => {
-  const progress = timestamp - lastRender
-  update(progress)
-  draw()
-  lastRender = timestamp
-  window.requestAnimationFrame(loop)
-}
-
-export default loop

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Navbar from '../nav'
-import loop from './engine'
+import { loop } from './engine'
 import './App.css'
 
 class App extends React.Component {
@@ -17,14 +17,16 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    window.requestAnimationFrame(loop)
+    window.setInterval(loop, 1000)
   }
 
   render() {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <Navbar currentPage={this.props.location.pathname} />
+          <Navbar
+            currentPage={this.props.location.pathname}
+          />
           {this.props.children}
         </div>
       </MuiThemeProvider>

@@ -1,4 +1,4 @@
-.skill-container{
+.stat-container{
   p {
     margin: 0;
     display: flex;
@@ -9,11 +9,11 @@
     width: 50%;
   }
 
-  .skill-name {
+  .stat-name {
     padding-left: 5em;
   }
 
-  .skill-value {
+  .stat-value {
     padding-left: 1em;
   }
 }

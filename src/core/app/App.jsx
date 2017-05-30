@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    window.setInterval(loop, 1000)
+    window.setInterval(loop, 500)
   }
 
   render() {

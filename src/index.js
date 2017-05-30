@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 import registerServiceWorker from './registerServiceWorker';
 
 import App from './core/app'
@@ -9,9 +11,16 @@ import Intern from './intern'
 import NotFound from './notfound'
 import About from './about'
 import Company from './company'
+import rootReducer from './core/reducer'
 import './index.css'
 
 injectTapEventPlugin()
+
+const startStore = (initialState) => {
+  return createStore(rootReducer, initialState)
+}
+
+export const store = startStore()
 
 const BaseApp = () => (
   <Router history={hashHistory}>
@@ -25,14 +34,9 @@ const BaseApp = () => (
 )
 
 ReactDOM.render(
-  <BaseApp />
+  <Provider store={store}>
+    <BaseApp />
+  </Provider>
 , document.getElementById('root'))
 
-// const render = (Component) => {
-//   ReactDOM.render(
-//     <AppContainer>
-//       <Component />
-//     </AppContainer>
-//   , document.getElementById('root'))
-// }
 registerServiceWorker()

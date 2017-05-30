@@ -1,6 +1,11 @@
-export let globalTime = 0
+import { store } from '../../index'
+
+const engineTick = (time) => ({
+  type: 'ENGINE_TICK',
+  time: time / 1000,
+})
 
 export const loop = () => {
-  globalTime = performance.now()
-  console.log(globalTime)
+  const time = performance.now()
+  store.dispatch(engineTick(time))
 }

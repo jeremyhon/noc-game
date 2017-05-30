@@ -1,14 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import AppBar from 'material-ui/AppBar'
+import { connect } from 'react-redux'
 import Menu from './Menu'
-import { globalTime } from '../app/engine'
 import './Navbar.css'
+
+const secondToGameDayRatio = 3;
 
 class Navbar extends React.Component {
   static propTypes = {
     currentPage: PropTypes.string.isRequired,
-    globalTime: PropTypes.number.isRequired,
+    globalTime: PropTypes.number.isRequired
   }
 
   renderMenu = () => (
@@ -16,10 +18,10 @@ class Navbar extends React.Component {
   )
 
   renderClock = () => {
-    const globalTime = this.props.globalTime
-    const day = Math.floor(globalTime % 30)
-    const month = Math.floor((globalTime / 30) % 12)
-    const year = Math.floor(globalTime / 360)
+    const dayCount = this.props.globalTime / secondToGameDayRatio
+    const day = Math.floor(dayCount % 30)
+    const month = Math.floor((dayCount / 30) % 12)
+    const year = Math.floor(dayCount / 360)
 
     return (
       <span>
@@ -40,10 +42,10 @@ class Navbar extends React.Component {
   }
 }
 
-const NavbarWrapper = (props) => {
-  return (
-    <Navbar {...props} globalTime={globalTime}/>
-  )
+const mapStateToProps = (state) => {
+  return {
+    globalTime: state.app.time || 0
+  }
 }
 
-export default NavbarWrapper
+export default connect(mapStateToProps)(Navbar)

@@ -1,9 +1,8 @@
 import React from 'react'
 import _ from 'lodash'
-import { Card, CardTitle, CardText } from 'material-ui/Card'
+import Card from '../core/card/Card'
 import SkillsContainer from '../stats/SkillsContainer'
 import './Company.css'
-import '../core/card.css'
 
 export default class Company extends React.Component {
   state = {
@@ -35,12 +34,13 @@ export default class Company extends React.Component {
 
   renderCompany = (company, key) => {
     return (
-      <Card key={key} className="company-card card">
-        <CardTitle title={company.name} />
-        <CardText>
-          <SkillsContainer skills={company.needs} />
-        </CardText>
-      </Card>
+      <Card
+        key={key}
+        className="company-card"
+        title={company.name}
+        subtitle="Needs"
+        skills={company.needs}
+      />
     )
   }
 

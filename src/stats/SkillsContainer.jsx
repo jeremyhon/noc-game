@@ -16,6 +16,7 @@ const renderSkills = (skills) => map(skills,
 
 const SkillsContainer = (props) => (
   <div className={classnames(props.className, 'stat-container')} >
+    <h3 className='stat-subtitle'>{props.subtitle}: </h3>
     {renderSkills(props.skills)}
   </div>
 )
@@ -27,6 +28,7 @@ SkillsContainer.defaultProps = {
 SkillsContainer.propTypes = {
   className: PropTypes.string,
   skills: skillsPropType.isRequired,
+  subtitle: PropTypes.string.isRequired,
 }
 
 export default SkillsContainer

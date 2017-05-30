@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Card, CardTitle, CardText } from 'material-ui/Card'
-import SkillsContainer from '../stats/SkillsContainer'
 import skillsPropType from '../stats/skillsPropType'
-import '../core/card.css'
+import Card from '../core/card/Card'
 
 const renderGenderIcon = (gender) => {
   if (gender === 'M') {
@@ -15,18 +13,18 @@ const renderGenderIcon = (gender) => {
 const renderTitle = (name, gender) => (<span>{name} {renderGenderIcon(gender)}</span>)
 
 const InternCard = (props) => (
-  <Card className="intern-card card">
-    <CardTitle title={renderTitle(props.name, props.gender)} />
-    <CardText>
-      <SkillsContainer skills={props.skills} />
-    </CardText>
-  </Card>
+  <Card
+    className="intern-card"
+    title={renderTitle(props.name, props.gender)}
+    subtitle="Skills"
+    skills={props.skills}
+  />
 )
 
 InternCard.propTypes = {
   name: PropTypes.string.isRequired,
   gender: PropTypes.oneOf(['M', 'F']).isRequired,
-  skills: skillsPropType,
+  skills: skillsPropType.isRequired,
 }
 
 export default InternCard

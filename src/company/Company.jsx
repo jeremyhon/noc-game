@@ -2,6 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import Card from '../core/card/Card'
 import './Company.css'
+import { generate } from '../lib/companyname'
 
 export default class Company extends React.Component {
   state = {
@@ -46,6 +47,7 @@ export default class Company extends React.Component {
   renderCompanies = (companies) => _.map(companies, this.renderCompany)
 
   render() {
+    generate()
     return (
       <div className="company">
         You have reached the Company Component

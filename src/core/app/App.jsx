@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Navbar from '../nav'
-import { loop } from './engine'
+import { start } from './engine'
 import './App.css'
 
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    window.setInterval(loop, 500)
+    start()
   }
 
   render() {

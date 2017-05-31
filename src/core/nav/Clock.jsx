@@ -22,7 +22,7 @@ class Clock extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    dayCount: state.app.time || 0
+    dayCount: state.time || 0
   }
 }
 

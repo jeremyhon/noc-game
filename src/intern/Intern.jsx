@@ -1,14 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
+import { connect } from 'react-redux'
 import InternCard from './InternCard'
-import { generate as generateIntern } from '../lib/intern'
+import { generate as randomIntern } from '../lib/intern'
 import './Intern.css'
 
-export default class Intern extends React.Component {
-  state = {}
+const generateIntern = () => ({
+  type: 'GENERATE_INTERN',
+  payload: { intern: randomIntern() },
+})
+
+class Intern extends React.Component {
+  static propTypes = {
+    interns: PropTypes.array.isRequired,
+    generateIntern: PropTypes.func.isRequired,
+  }
 
   componentDidMount = () => {
-    this.setState({ interns: _.times(3, generateIntern) })
+    _.times(3, this.props.generateIntern)
   }
 
   renderIntern = (intern, key) => (
@@ -22,10 +32,18 @@ export default class Intern extends React.Component {
       <div className="intern">
         Hi this is the Intern component <br />
         These are your interns:
-        {this.renderInterns(this.state.interns)}
+        {this.renderInterns(this.props.interns)}
       </div>
     )
   }
 }
 
-Intern.propTypes = {}
+const mapStateToProps = (state) => ({
+  interns: state.interns
+})
+
+const mapDispatchToProps = {
+  generateIntern
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Intern)

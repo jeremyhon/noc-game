@@ -1,61 +1,69 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
-import Card from '../core/card/Card'
+import { connect } from 'react-redux'
+import generateCompany from '../lib/company'
 import './Company.css'
-import { generate } from '../lib/companyname'
 
-export default class Company extends React.Component {
-  state = {
-    companies: [
-      {
-        name: 'UpGuard',
-        needs: {
-          business: 3,
-          design: 6,
-          technical: 8,
-        }
-      },{
-        name: 'Workato',
-        needs: {
-          business: 9,
-          design: 7,
-          technical: 2,
-        }
-      },{
-        name: 'EasilyDo',
-        needs: {
-          business: 1,
-          design: 4,
-          technical: 10,
-        }
-      }
-    ]
+import Card from '../core/card/Card'
+import skillsPropType from '../stats/skillsPropType'
+
+const addCompany = () => ({
+  type: 'ADD_COMPANY',
+  payload: { company: generateCompany() },
+})
+
+const CompanyCard = (props) => {
+  return (
+    <Card
+      className="company-card"
+      title={props.name}
+      subtitle="Needs"
+      skills={props.needs}
+    />
+  )
+}
+
+CompanyCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  needs: skillsPropType.isRequired,
+}
+
+class Company extends React.Component {
+  static propTypes = {
+    companies: PropTypes.array.isRequired,
+    addCompany: PropTypes.func.isRequired,
+  }
+
+  componentDidMount = () => {
+    _.times(3, this.props.addCompany)
   }
 
   renderCompany = (company, key) => {
     return (
-      <Card
-        key={key}
-        className="company-card"
-        title={company.name}
-        subtitle="Needs"
-        skills={company.needs}
-      />
+      <CompanyCard key={key} {...company} />
     )
   }
 
   renderCompanies = (companies) => _.map(companies, this.renderCompany)
 
   render() {
-    generate()
     return (
       <div className="company">
         You have reached the Company Component
         Available Companies:
-        {this.renderCompanies(this.state.companies)}
+        {this.renderCompanies(this.props.companies)}
       </div>
     )
   }
 }
 
-Company.propTypes = {}
+const mapStateToProps = (state) => ({
+  companies: state.companies
+})
+
+const mapDispatchToProps = {
+  addCompany
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Company)

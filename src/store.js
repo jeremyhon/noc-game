@@ -9,4 +9,6 @@ const startStore = (initialState) => {
   )
 }
 
-export default startStore()
+const store = startStore()
+
+export default store

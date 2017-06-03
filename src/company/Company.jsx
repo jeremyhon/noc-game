@@ -2,16 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
-import generateCompany from 'lib/company'
+import * as actions from './actions'
 import './Company.css'
 
 import Card from 'components/card'
 import skillsPropType from 'components/stats/skillsPropType'
-
-const addCompany = () => ({
-  type: 'ADD_COMPANY',
-  payload: { company: generateCompany() },
-})
 
 const CompanyCard = (props) => {
   return (
@@ -63,7 +58,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  addCompany
+  addCompany: actions.addCompany
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Company)

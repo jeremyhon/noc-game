@@ -2,8 +2,8 @@ import _ from 'lodash'
 
 export default (state = [], action) => {
   switch (action.type) {
-    case 'ADD_COMPANY':
-      return _.concat(state, action.payload.company)
+    case 'NEW_COMPANY':
+      return _.concat([action.payload.company], state)
     default:
       return state
   }

@@ -1,29 +1,28 @@
-import { maleNames, femaleNames, lastNames, genders } from './data'
+import Chance from 'chance'
+
+import { genders } from './data'
 import generateSkills from './skills'
 import randomIndex from './random'
 
-const getFirstName = (gender) => {
-  let firstNames;
+const chance = Chance(Math.random)
+
+const getName = (gender) => {
   switch(gender) {
     case 'M':
-      firstNames = maleNames
-      break;
+      return chance.name({ gender: 'Male' })
     case 'F':
     default:
-      firstNames = femaleNames
+      return chance.name({ gender: 'Female' })
   }
-  return randomIndex(firstNames)
 }
-
 
 const generateIntern = () => {
   const gender = randomIndex(genders) //assigning gender lol
-  const firstName = getFirstName(gender)
-  const lastName = randomIndex(lastNames)
+  const name = getName(gender)
   const skills = generateSkills()
 
   return {
-    name: `${firstName} ${lastName}`,
+    name,
     gender,
     skills,
   }

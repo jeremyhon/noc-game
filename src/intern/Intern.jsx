@@ -3,13 +3,8 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import InternCard from './InternCard'
-import generateIntern from 'lib/intern'
+import * as actions from './actions'
 import './Intern.css'
-
-const addIntern = () => ({
-  type: 'ADD_INTERN',
-  payload: { intern: generateIntern() },
-})
 
 class Intern extends React.Component {
   static propTypes = {
@@ -43,7 +38,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  addIntern
+  addIntern: actions.addIntern
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Intern)

@@ -1,4 +1,5 @@
 import store from '../store'
+import { startEvents } from 'events/observer'
 
 window.gameDayInMilliseconds = 3000
 
@@ -14,4 +15,5 @@ const loop = () => {
 
 export const start = () => {
   window.setInterval(loop, 500)
+  startEvents()
 }

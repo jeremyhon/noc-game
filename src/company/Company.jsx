@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
-import generateCompany from '../lib/company'
+import generateCompany from 'lib/company'
 import './Company.css'
 
-import Card from '../components/card'
-import skillsPropType from '../components/stats/skillsPropType'
+import Card from 'components/card'
+import skillsPropType from 'components/stats/skillsPropType'
 
 const addCompany = () => ({
   type: 'ADD_COMPANY',

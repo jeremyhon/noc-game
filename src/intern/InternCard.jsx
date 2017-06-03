@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import skillsPropType from '../components/stats/skillsPropType'
-import Card from '../components/card'
+import skillsPropType from 'components/stats/skillsPropType'
+import Card from 'components/card'
 
 const renderGenderIcon = (gender) => {
   if (gender === 'M') {

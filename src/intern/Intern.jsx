@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import InternCard from './InternCard'
-import generateIntern from '../lib/intern'
+import generateIntern from 'lib/intern'
 import './Intern.css'
 
 const addIntern = () => ({

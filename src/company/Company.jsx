@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import generateCompany from '../lib/company'
 import './Company.css'
 
-import Card from '../core/card/Card'
-import skillsPropType from '../stats/skillsPropType'
+import Card from '../components/card'
+import skillsPropType from '../components/stats/skillsPropType'
 
 const addCompany = () => ({
   type: 'ADD_COMPANY',

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker';
 
 import store from './store'
-import App from './core/app'
+import App from './app'
 import Intern from './intern'
 import NotFound from './notfound'
 import About from './about'

@@ -1,4 +1,4 @@
-import chainablePropType from '../lib/customproptypes'
+import chainablePropType from '../../lib/customproptypes'
 
 const isStatValue = (props, propName) => Number.isInteger(props[propName]) &&
   props[propName] <= 10 &&

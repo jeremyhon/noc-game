@@ -1,18 +1,24 @@
-import { combineReducers } from 'redux'
-import interns from './intern/reducer'
-import companies from './company/reducer'
+import _ from 'lodash'
 
-const time = (state = 0, action) => {
-  switch (action.type) {
-    case 'ENGINE_TICK':
-      return action.time
-    default:
-      return state
-  }
+const defaultState = {
+  time: 0,
+  interns: [],
+  companies: [],
 }
 
-export default combineReducers({
-  time,
-  interns,
-  companies,
-})
+export default (state = defaultState, action) => {
+  let interns, companies
+
+  switch (action.type) {
+  case 'ENGINE_TICK':
+    return { ...state, time: action.time}
+  case 'NEW_INTERN':
+    interns = _.concat([action.payload.intern], state.interns)
+    return { ...state, interns }
+  case 'NEW_COMPANY':
+    companies = _.concat([action.payload.company], state.companies)
+    return { ...state, companies }
+  default:
+    return state
+  }
+}

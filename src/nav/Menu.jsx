@@ -1,25 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { withRouter } from 'react-router'
+import { NavLink } from 'react-router-dom'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import Divider from 'material-ui/Divider'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 
-export default class Menu extends React.Component {
-  hideButton = (linkedPage) => this.props.currentPage === linkedPage
+class Menu extends React.Component {
+  static propTypes = {
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired,
+    }).isRequired,
+  }
 
   renderButton = (text, url) => {
-    if (this.props.currentPage !== url) {
-      return (
-        <MenuItem
-          containerElement={<Link to={url} />}
-          primaryText={text}
-        />
-      )
-    }
-    return null
+    return (
+      <MenuItem
+        disabled={this.props.location.pathname === url}
+        containerElement={<NavLink to={url} />}
+        primaryText={text}
+      />
+    )
   }
 
   render() {
@@ -44,6 +47,4 @@ export default class Menu extends React.Component {
   }
 }
 
-Menu.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-}
+export default withRouter(Menu)

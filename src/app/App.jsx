@@ -1,33 +1,31 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Switch, Route } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Navbar from 'nav'
-import { start } from 'lib/engine'
+import Intern from 'intern'
+import NotFound from 'notfound'
+import About from 'about'
+import Company from 'company'
+import * as engine from 'lib/engine'
 import './App.css'
 
 class App extends React.Component {
-  static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]).isRequired,
-    location: PropTypes.shape({
-      pathname: PropTypes.string,
-    }).isRequired,
-  }
-
   componentDidMount = () => {
-    start()
+    //start your engineeesssss~
+    engine.start()
   }
 
   render() {
     return (
       <MuiThemeProvider>
-        <div className="App">
-          <Navbar
-            currentPage={this.props.location.pathname}
-          />
-          {this.props.children}
+        <div className="app">
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Intern} />
+            <Route path="/about" component={About} />
+            <Route path="/companies" component={Company} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </MuiThemeProvider>
     )

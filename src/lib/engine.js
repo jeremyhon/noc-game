@@ -1,12 +1,8 @@
 import store from '../store'
+import { engineTick } from '../actions';
 import { startEvents } from 'events/observer'
 
 window.gameDayInMilliseconds = 3000
-
-const engineTick = (time) => ({
-  type: 'ENGINE_TICK',
-  time: time / window.gameDayInMilliseconds,
-})
 
 const loop = () => {
   const time = performance.now()

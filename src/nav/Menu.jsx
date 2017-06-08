@@ -5,27 +5,25 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
-import Divider from 'material-ui/Divider'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 
-import { changeTitle } from '../actions'
+import { titleMap } from './Navbar'
 
 class Menu extends React.Component {
   static propTypes = {
     location: PropTypes.shape({
       pathname: PropTypes.string.isRequired,
     }).isRequired,
-    handleTitleChange: PropTypes.func.isRequired,
   }
 
-  renderButton = (text, url) => {
+  renderButton = (title, path) => {
     return (
       <MenuItem
-        disabled={this.props.location.pathname === url}
-        containerElement={<NavLink to={url} />}
-        primaryText={text}
-        onTouchTap={_.partial(this.props.handleTitleChange, text)}
+        key={title}
+        disabled={this.props.location.pathname === path}
+        containerElement={<NavLink to={path} />}
+        primaryText={title}
       />
     )
   }
@@ -43,19 +41,10 @@ class Menu extends React.Component {
         anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
         targetOrigin={{ horizontal: 'left', vertical: 'top' }}
       >
-        {this.renderButton('Interns', '/')}
-        {this.renderButton('Companies', '/companies')}
-        <Divider />
-        {this.renderButton('About', '/about')}
+        {_.map(titleMap, this.renderButton)}
       </IconMenu>
     )
   }
 }
 
-const mapStateToProps = () => ({})
-
-const mapDispatchToProps = {
-  handleTitleChange: changeTitle,
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu))
+export default withRouter(Menu)

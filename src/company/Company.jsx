@@ -45,8 +45,6 @@ class Company extends React.Component {
   render() {
     return (
       <div className="company">
-        You have reached the Company Component
-        Available Companies:
         {this.renderCompanies(this.props.companies)}
       </div>
     )

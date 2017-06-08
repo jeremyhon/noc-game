@@ -15,8 +15,3 @@ export const engineTick = (time) => ({
   type: 'ENGINE_TICK',
   payload: { time: time / window.gameDayInMilliseconds },
 })
-
-export const changeTitle = (title) => ({
-  type: 'CHANGE_TITLE',
-  payload: { title },
-})

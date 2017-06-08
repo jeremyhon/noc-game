@@ -2,7 +2,6 @@ import _ from 'lodash'
 
 const defaultState = {
   time: 0,
-  appTitle: "Intern Manager",
   interns: [],
   companies: [],
 }
@@ -19,8 +18,6 @@ export default (state = defaultState, {type, payload}) => {
   case 'NEW_COMPANY':
     companies = _.concat([payload.company], state.companies)
     return { ...state, companies }
-  case 'CHANGE_TITLE':
-    return { ...state, appTitle: payload.title }
   default:
     return state
   }

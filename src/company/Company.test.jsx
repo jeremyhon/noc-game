@@ -20,5 +20,5 @@ it("matches the snapshot", () => {
 
 it("generates new companies on startup", () => {
   component = mount(<Company {...props} />)
-  expect(props.newCompany.mock.calls.length).toBe(3)
+  expect(props.newCompany).toHaveBeenCalledTimes(3)
 })

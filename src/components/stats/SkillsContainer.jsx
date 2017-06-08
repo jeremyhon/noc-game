@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import map from 'lodash/map'
-import startCase from 'lodash/startCase'
+import _ from 'lodash'
 import classnames from 'classnames'
 import skillsPropType from './skillsPropType'
 import './StatsContainer.css'
 
-const renderSkills = (skills) => map(skills,
+const renderSkills = (skills) => _.map(skills,
   (skill, key) => (
     <p key={key}>
-      <span className="stat-name">{startCase(key)}:</span>
+      <span className="stat-name">{_.startCase(key)}:</span>
       <span className="stat-value">{skill}</span>
     </p>),
 )

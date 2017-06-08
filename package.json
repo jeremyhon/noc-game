@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "node-sass-chokidar": "^0.0.2",
-    "react-scripts": "1.0.7"
+    "react-scripts": "^1.0.7"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -25,7 +25,7 @@
     "start-js": "react-scripts start",
     "start": "NODE_PATH=./src npm-run-all -p watch-css start-js",
     "build": "NODE_PATH=./src npm run build-css && react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "NODE_PATH=./src react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }

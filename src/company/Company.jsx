@@ -2,29 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
+
+import CompanyCard from './CompanyCard'
 import { newCompany } from '../actions'
 import './Company.css'
 
-import Card from 'components/card'
-import skillsPropType from 'components/stats/skillsPropType'
-
-const CompanyCard = (props) => {
-  return (
-    <Card
-      className="company-card"
-      title={props.name}
-      subtitle="Needs"
-      skills={props.needs}
-    />
-  )
-}
-
-CompanyCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  needs: skillsPropType.isRequired,
-}
-
-class Company extends React.Component {
+export class Company extends React.Component {
   static propTypes = {
     companies: PropTypes.array.isRequired,
     newCompany: PropTypes.func.isRequired,

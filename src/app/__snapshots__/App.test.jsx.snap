@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Provider
+    store={
+        Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+    }
+>
+    <BrowserRouter>
+        <MuiThemeProvider>
+            <div
+                className="app"
+            >
+                <withRouter(Navbar) />
+                <Switch>
+                    <Route
+                        component={[Function]}
+                        exact={true}
+                        path="/"
+                    />
+                    <Route
+                        component={[Function]}
+                        path="/about"
+                    />
+                    <Route
+                        component={[Function]}
+                        path="/companies"
+                    />
+                    <Route
+                        component={[Function]}
+                    />
+                </Switch>
+            </div>
+        </MuiThemeProvider>
+    </BrowserRouter>
+</Provider>,
+  "nodes": Array [
+    <Provider
+      store={
+            Object {
+                  "dispatch": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                  Symbol(observable): [Function],
+                }
+      }
+>
+      <BrowserRouter>
+            <MuiThemeProvider>
+                  <div
+                        className="app"
+                  >
+                        <withRouter(Navbar) />
+                        <Switch>
+                              <Route
+                                    component={[Function]}
+                                    exact={true}
+                                    path="/"
+                              />
+                              <Route
+                                    component={[Function]}
+                                    path="/about"
+                              />
+                              <Route
+                                    component={[Function]}
+                                    path="/companies"
+                              />
+                              <Route
+                                    component={[Function]}
+                              />
+                        </Switch>
+                  </div>
+            </MuiThemeProvider>
+      </BrowserRouter>
+</Provider>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <App />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": App {
+        "_reactInternalInstance": [Circular],
+        "componentDidMount": [Function],
+        "context": Object {},
+        "props": Object {},
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Provider
+          store={
+                    Object {
+                              "dispatch": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                              Symbol(observable): [Function],
+                            }
+          }
+>
+          <BrowserRouter>
+                    <MuiThemeProvider>
+                              <div
+                                        className="app"
+                              >
+                                        <withRouter(Navbar) />
+                                        <Switch>
+                                                  <Route
+                                                            component={[Function]}
+                                                            exact={true}
+                                                            path="/"
+                                                  />
+                                                  <Route
+                                                            component={[Function]}
+                                                            path="/about"
+                                                  />
+                                                  <Route
+                                                            component={[Function]}
+                                                            path="/companies"
+                                                  />
+                                                  <Route
+                                                            component={[Function]}
+                                                  />
+                                        </Switch>
+                              </div>
+                    </MuiThemeProvider>
+          </BrowserRouter>
+</Provider>,
+        "_debugID": 2,
+        "_renderedOutput": <Provider
+          store={
+                    Object {
+                              "dispatch": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                              Symbol(observable): [Function],
+                            }
+          }
+>
+          <BrowserRouter>
+                    <MuiThemeProvider>
+                              <div
+                                        className="app"
+                              >
+                                        <withRouter(Navbar) />
+                                        <Switch>
+                                                  <Route
+                                                            component={[Function]}
+                                                            exact={true}
+                                                            path="/"
+                                                  />
+                                                  <Route
+                                                            component={[Function]}
+                                                            path="/about"
+                                                  />
+                                                  <Route
+                                                            component={[Function]}
+                                                            path="/companies"
+                                                  />
+                                                  <Route
+                                                            component={[Function]}
+                                                  />
+                                        </Switch>
+                              </div>
+                    </MuiThemeProvider>
+          </BrowserRouter>
+</Provider>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <App />,
+}
+`;

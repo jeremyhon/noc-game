@@ -1,4 +1,4 @@
-import observeStore from '../observer'
+import observeStore from '../baseObserver'
 import store from '../store'
 import _ from 'lodash'
 import * as actions from '../actions'
@@ -18,7 +18,6 @@ const onNewDay = (dayCount) => {
   _.each(events, (event, eventName) => {
     const roll = window.random()
     if (roll < event.chance) {
-      console.log(eventName)
       store.dispatch(event.action())
     }
   })

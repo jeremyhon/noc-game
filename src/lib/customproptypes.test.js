@@ -1,4 +1,4 @@
-import customPropType from '../customproptypes'
+import customPropType from './customproptypes'
 
 let propType
 let props

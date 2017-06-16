@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-const defaultState = {
+export const defaultState = {
   time: 0,
   interns: [],
   companies: [],
@@ -11,7 +11,7 @@ export default (state = defaultState, {type, payload}) => {
 
   switch (type) {
   case 'ENGINE_TICK':
-    return { ...state, time: payload.time}
+    return { ...state, time: payload.time }
   case 'NEW_INTERN':
     interns = _.concat([payload.intern], state.interns)
     return { ...state, interns }

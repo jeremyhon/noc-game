@@ -13,4 +13,4 @@ it('should create a store from reducers', () => {
   const reducer = require('./reducer')
   const createStore = require('redux').createStore
   expect(createStore).toHaveBeenCalledWith(reducer, undefined, undefined)
-});
+})

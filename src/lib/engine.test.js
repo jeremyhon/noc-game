@@ -14,7 +14,7 @@ it('should start loop and events', () => {
   jest.useFakeTimers()
 
   start()
-  jest.runTimersToTime(interval)
+  jest.runOnlyPendingTimers(interval)
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: "ENGINE_TICK",

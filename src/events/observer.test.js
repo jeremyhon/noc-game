@@ -5,8 +5,12 @@ jest.mock('../store', () => ({
   dispatch: jest.fn(),
 }))
 
+let lodash
+
 beforeEach(() => {
   jest.clearAllMocks()
+  lodash = require('lodash')
+  lodash.random = jest.fn(() => 0)
 });
 
 it('should register the correct functions', () => {
@@ -21,16 +25,15 @@ it('should calculate the day correctly', () => {
 })
 
 it('should dispatch events correctly', () => {
-  observer.setRandomMethod(() => 0)
   const dispatch = require('../store').dispatch
   observer.onNewDay()
   expect(dispatch).toHaveBeenCalledTimes(2)
-  expect(dispatch.mock.calls[0][0].type).toEqual('NEW_INTERN')
-  expect(dispatch.mock.calls[1][0].type).toEqual('NEW_COMPANY')
+  expect(dispatch.mock.calls[0][0].type).toEqual('ADD_INTERN')
+  expect(dispatch.mock.calls[1][0].type).toEqual('ADD_COMPANY')
 })
 
 it('should not dispatch events when the roll is too high', () => {
-  observer.setRandomMethod(() => 0.2)
+  lodash.random = jest.fn(() => 0.2)
   const dispatch = require('../store').dispatch
   observer.onNewDay()
   expect(dispatch).not.toHaveBeenCalled()

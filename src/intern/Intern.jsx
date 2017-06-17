@@ -3,17 +3,18 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import InternCard from './InternCard'
-import { newIntern } from '../actions'
+import { addIntern } from '../actions'
+import generateIntern from 'lib/intern'
 import './Intern.css'
 
 class Intern extends React.Component {
   static propTypes = {
     interns: PropTypes.array.isRequired,
-    newIntern: PropTypes.func.isRequired,
+    addIntern: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
-    _.times(3, this.props.newIntern)
+    _.times(3, () => this.props.addIntern(generateIntern()))
   }
 
   renderIntern = (intern, key) => (
@@ -34,7 +35,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  newIntern
+  addIntern
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Intern)

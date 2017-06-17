@@ -28,7 +28,7 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <Company
         companies={Array []}
-        newCompany={[Function]}
+        addCompany={[Function]}
 />,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -39,7 +39,7 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "companies": Array [],
-          "newCompany": [Function],
+          "addCompany": [Function],
         },
         "refs": Object {},
         "renderCompanies": [Function],
@@ -87,7 +87,7 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <Company
     companies={Array []}
-    newCompany={[Function]}
+    addCompany={[Function]}
 />,
 }
 `;

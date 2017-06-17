@@ -9,7 +9,7 @@ let component
 beforeEach(() => {
   props = {
     companies: [],
-    newCompany: jest.fn()
+    addCompany: jest.fn()
   }
 })
 
@@ -20,5 +20,5 @@ it("matches the snapshot", () => {
 
 it("generates new companies on startup", () => {
   component = mount(<Company {...props} />)
-  expect(props.newCompany).toHaveBeenCalledTimes(3)
+  expect(props.addCompany).toHaveBeenCalledTimes(3)
 })

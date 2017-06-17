@@ -1,16 +1,13 @@
-import generateIntern from 'lib/intern'
-import generateCompany from 'lib/company'
-
 const boilerPlateAction = (type, payload) => ({ type, payload })
 
-export const newIntern = () => boilerPlateAction(
-  'NEW_INTERN',
-  { intern: generateIntern() }
+export const addIntern = (intern) => boilerPlateAction(
+  'ADD_INTERN',
+  {intern}
 )
 
-export const newCompany = () => boilerPlateAction(
-  'NEW_COMPANY',
-  { company: generateCompany() },
+export const addCompany = (company) => boilerPlateAction(
+  'ADD_COMPANY',
+  {company},
 )
 
 export const engineTick = (time) => boilerPlateAction(

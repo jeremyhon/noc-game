@@ -4,17 +4,18 @@ import _ from 'lodash'
 import { connect } from 'react-redux'
 
 import CompanyCard from './CompanyCard'
-import { newCompany } from '../actions'
+import { addCompany } from '../actions'
+import generateCompany from 'lib/company'
 import './Company.css'
 
 export class Company extends React.Component {
   static propTypes = {
     companies: PropTypes.array.isRequired,
-    newCompany: PropTypes.func.isRequired,
+    addCompany: PropTypes.func.isRequired,
   }
 
   componentDidMount = () => {
-    _.times(3, this.props.newCompany)
+    _.times(3, () => this.props.addCompany(generateCompany()))
   }
 
   renderCompany = (company, key) => {
@@ -39,7 +40,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  newCompany
+  addCompany
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Company)

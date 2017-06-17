@@ -15,10 +15,9 @@ it("renders without crashing", () => {
 it('runs the engine and event system', () => {
   const store = require('../store').default
   jest.spyOn(store, 'dispatch')
-  const lodash = require('lodash')
-  lodash.random = jest.fn(() => 0)
   jest.useFakeTimers()
 
+  // check engine is ticking
   mount(<App />)
   jest.runTimersToTime(interval)
 
@@ -26,7 +25,17 @@ it('runs the engine and event system', () => {
     type: "ENGINE_TICK",
     payload: {time: 0},
   })
+})
 
+it('runs the event system', () => {
+  const store = require('../store').default
+  jest.spyOn(store, 'dispatch')
+  require('lodash').random = () => 0
+  jest.useFakeTimers()
+
+  mount(<App />)
+
+  // fast-forward clock and check events are being created
   global.performance.now = () => 3000
   jest.runTimersToTime(interval)
 

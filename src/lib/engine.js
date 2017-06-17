@@ -3,6 +3,7 @@ import { engineTick } from '../actions';
 import { startEvents } from 'events/observer'
 
 window.gameDayInMilliseconds = 3000
+export const interval = 500;
 
 const loop = () => {
   const time = performance.now()
@@ -10,6 +11,6 @@ const loop = () => {
 }
 
 export const start = () => {
-  window.setInterval(loop, 500)
+  window.setInterval(loop, interval)
   startEvents()
 }

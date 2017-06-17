@@ -28,8 +28,8 @@ it('should dispatch events correctly', () => {
   const dispatch = require('../store').dispatch
   observer.onNewDay()
   expect(dispatch).toHaveBeenCalledTimes(2)
-  expect(dispatch.mock.calls[0][0].type).toEqual('ADD_INTERN')
-  expect(dispatch.mock.calls[1][0].type).toEqual('ADD_COMPANY')
+  expect(dispatch.mock.calls[0][0].type).toEqual('ADD_NEW_INTERN')
+  expect(dispatch.mock.calls[1][0].type).toEqual('ADD_NEW_COMPANY')
 })
 
 it('should not dispatch events when the roll is too high', () => {

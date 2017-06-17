@@ -9,9 +9,9 @@ it('should reduce ENGINE_TICK', () => {
   expect(newState).toEqual({ ...defaultState, time: 1})
 })
 
-it('should reduce ADD_INTERN', () => {
+it('should reduce ADD_NEW_INTERN', () => {
   const action = {
-    type: 'ADD_INTERN',
+    type: 'ADD_NEW_INTERN',
     payload: { intern: "intern 1" }
   }
   const newState = reducer(defaultState, action)
@@ -20,7 +20,7 @@ it('should reduce ADD_INTERN', () => {
 
 it('should prepend interns', () => {
   const action = {
-    type: 'ADD_INTERN',
+    type: 'ADD_NEW_INTERN',
     payload: { intern: "intern 2" }
   }
   const expectedState = {
@@ -31,9 +31,9 @@ it('should prepend interns', () => {
   expect(newState).toEqual(expectedState)
 })
 
-it('should reduce ADD_COMPANY', () => {
+it('should reduce ADD_NEW_COMPANY', () => {
   const action = {
-    type: 'ADD_COMPANY',
+    type: 'ADD_NEW_COMPANY',
     payload: { company: "company 1" }
   }
   const newState = reducer(defaultState, action)
@@ -42,7 +42,7 @@ it('should reduce ADD_COMPANY', () => {
 
 it('should prepend companies', () => {
   const action = {
-    type: 'ADD_COMPANY',
+    type: 'ADD_NEW_COMPANY',
     payload: { company: "company 2" }
   }
   const expectedState = {

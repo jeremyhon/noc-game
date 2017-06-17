@@ -12,12 +12,16 @@ export default (state = defaultState, {type, payload}) => {
   switch (type) {
   case 'ENGINE_TICK':
     return { ...state, time: payload.time }
-  case 'ADD_INTERN':
+  case 'ADD_NEW_INTERN':
     interns = _.concat([payload.intern], state.interns)
     return { ...state, interns }
-  case 'ADD_COMPANY':
+  case 'POPULATE_INTERNS':
+    return { ...state, interns: payload.interns }
+  case 'ADD_NEW_COMPANY':
     companies = _.concat([payload.company], state.companies)
     return { ...state, companies }
+  case 'POPULATE_COMPANIES':
+    return { ...state, companies: payload.companies }
   default:
     return state
   }

@@ -12,7 +12,7 @@ it("renders without crashing", () => {
   mount(<App />)
 })
 
-it('runs the engine and event system', () => {
+it('runs the engine and produces tick actions', () => {
   const store = require('../store').default
   jest.spyOn(store, 'dispatch')
   jest.useFakeTimers()

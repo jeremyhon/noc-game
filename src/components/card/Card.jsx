@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Card as MuiCard, CardTitle, CardText } from 'material-ui/Card'
-import SkillsContainer from '../stats/SkillsContainer'
-import skillsPropType from '../stats/skillsPropType'
+import { SkillsContainer, skillsPropType } from '../stats'
 import './card.css'
 
 const Card = (props) => (

@@ -5,7 +5,7 @@ jest.mock('./registerServiceWorker')
 jest.mock('react-dom', () => ({
   render: jest.fn()
 }))
-jest.mock('./app', () => {
+jest.mock('./app/App', () => {
   return () => (<div />)
 })
 
@@ -15,7 +15,7 @@ it('should render and call setup methods', () => {
   const injectTapEventPlugin = require('react-tap-event-plugin')
   const registerServiceWorker = require('./registerServiceWorker').default
   const render = require('react-dom').render
-  const App = require('./app')
+  const App = require('./app/App')
 
   require('./index')
 

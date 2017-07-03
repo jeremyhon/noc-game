@@ -7,6 +7,6 @@ const isStatValue = (props, propName) => Number.isInteger(props[propName]) &&
 const error = (props, propName) =>
   `The prop \`${propName}\` should be a number between 0 and 10.`
 
-const statPropType = chainablePropType(isStatValue, error)
+export const statPropType = chainablePropType(isStatValue, error)
 
 export default statPropType

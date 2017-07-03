@@ -5,6 +5,6 @@ import statPropType from './statPropType'
 
 const skillsPropTypeObject = _.zipObject(skills, _.map(skills, () => { return statPropType.isRequired }))
 
-const skillsPropType = PropTypes.shape(skillsPropTypeObject)
+export const skillsPropType = PropTypes.shape(skillsPropTypeObject)
 
 export default skillsPropType

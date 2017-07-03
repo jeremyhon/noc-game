@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 import CompanyCard from './CompanyCard'
 import { populateCompanies } from '../actions'
-import './Company.css'
 
 export class Company extends React.Component {
   static propTypes = {

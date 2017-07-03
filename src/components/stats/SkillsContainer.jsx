@@ -15,7 +15,7 @@ const renderSkills = (skills) => _.map(skills,
     </p>),
 )
 
-const SkillsContainer = (props) => (
+export const SkillsContainer = (props) => (
   <div className={classnames(props.className, 'stat-container')} >
     <h3 className='stat-subtitle'>{props.subtitle}: </h3>
     {renderSkills(_.pick(props.skills, skills))}

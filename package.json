@@ -18,13 +18,13 @@
   "devDependencies": {
     "enzyme": "^2.8.2",
     "jest-enzyme": "^3.2.0",
-    "node-sass-chokidar": "^0.0.2",
+    "node-sass-chokidar": "^0.0.3",
     "react-scripts": "^1.0.7",
     "react-test-renderer": "^15.5.4"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node ./node_modules/.bin/node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node ./node_modules/.bin/node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "NODE_PATH=./src npm-run-all -p watch-css start-js",
     "build": "NODE_PATH=./src npm run build-css && react-scripts build",

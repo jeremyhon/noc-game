@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-class Clock extends React.Component {
+export class Clock extends React.Component {
   static propTypes = {
     dayCount: PropTypes.number.isRequired,
   }

@@ -13,6 +13,7 @@ exports[`matches the snapshot 1`] = `
         "padding": 0,
       }
     }
+    title="hello"
   />
   <CardText
     style={
@@ -21,8 +22,16 @@ exports[`matches the snapshot 1`] = `
       }
     }
   >
-    <SkillsContainer
+    <Component
       className=""
+      skills={
+        Object {
+          "business": 1,
+          "design": 2,
+          "technical": 3,
+        }
+      }
+      subtitle="world"
     />
   </CardText>
 </Card>

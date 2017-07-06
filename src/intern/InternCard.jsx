@@ -16,7 +16,7 @@ const renderGenderIcon = (gender) => {
 
 const renderTitle = (name, gender) => (<span>{name} {renderGenderIcon(gender)}</span>)
 
-const InternCard = (props) => (
+export const InternCard = (props) => (
   <Card
     className="intern-card"
     title={renderTitle(props.name, props.gender)}
@@ -25,6 +25,7 @@ const InternCard = (props) => (
   >
     <div className="card-action">
       <FlatButton
+        className="match-button"
         label="match"
         backgroundColor="#00BCD4"
         labelStyle={{color: "#FFF"}}

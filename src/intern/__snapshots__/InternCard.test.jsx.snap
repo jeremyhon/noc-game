@@ -21,5 +21,30 @@ exports[`matches the snapshot 1`] = `
       />
     </span>
   }
-/>
+>
+  <div
+    className="card-action"
+  >
+    <FlatButton
+      backgroundColor="#00BCD4"
+      className="match-button"
+      disabled={false}
+      fullWidth={false}
+      label="match"
+      labelPosition="after"
+      labelStyle={
+        Object {
+          "color": "#FFF",
+        }
+      }
+      onKeyboardFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      primary={false}
+      secondary={false}
+    />
+  </div>
+</Card>
 `;

@@ -1,4 +1,6 @@
 import { mount, shallow } from 'enzyme';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-dom/test-utils';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import PropTypes from 'prop-types';
 
@@ -36,3 +38,10 @@ export const muiShallow = node => shallow(node, {
   context: { muiTheme },
   childContextTypes: { muiTheme: PropTypes.object },
 });
+
+// touch tap event Helpers
+
+export const simulateTouchTap = (element) => {
+  const node  = ReactDOM.findDOMNode(element.node)
+  TestUtils.Simulate.touchTap(node)
+}

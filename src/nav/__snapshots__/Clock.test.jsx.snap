@@ -10,3 +10,35 @@ exports[`matches the snapshot 1`] = `
   2
 </span>
 `;
+
+exports[`receives the day count from the store correctly 1`] = `
+<Clock
+  dayCount={0}
+  dispatch={[Function]}
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+/>
+`;

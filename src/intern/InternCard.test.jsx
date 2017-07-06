@@ -1,10 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import InternCard from './InternCard'
+import ConnectedInternCard, { InternCard } from './InternCard'
 
 it("matches the snapshot", () => {
   const props = {
+    id: "abc",
     name: "Harry Potter",
     gender: "M",
     skills: {
@@ -15,3 +16,5 @@ it("matches the snapshot", () => {
   }
   expect(shallow(<InternCard {...props} />)).toMatchSnapshot()
 })
+
+it("selects an intern")

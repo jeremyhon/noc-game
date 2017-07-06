@@ -1,8 +1,9 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import { Provider } from 'react-redux'
 
-import { muiMount } from '../testUtils'
-import store from '../store'
+import { muiMount, muiShallow, simulateTouchTap } from '../testUtils'
+import { startStore } from '../store'
 import ConnectedIntern, { Intern } from './Intern'
 
 let component
@@ -12,8 +13,9 @@ describe('Unconnected Intern', () => {
 
   beforeEach(() => {
     props = {
+      deselectIntern: jest.fn(),
       interns: [],
-      populateInterns: jest.fn()
+      populateInterns: jest.fn(),
     }
   })
 
@@ -23,28 +25,53 @@ describe('Unconnected Intern', () => {
   })
 
   it("generates new interns on startup", () => {
-    component = mount(<Intern {...props} />)
+    component = muiMount(<Intern {...props} />)
     expect(props.populateInterns).toHaveBeenCalled()
+  })
+
+  it("closes the drawer", () => {
+    component = muiMount(<Intern {...props} />)
+    component.instance().changeDrawerState(false, 'swipe')
+    expect(props.deselectIntern).toHaveBeenCalled()
   })
 })
 
 describe('ConnectedIntern', () => {
+  let store;
   beforeEach(() => {
-
+    store = startStore()
   })
 
   it("matches the snapshot", () => {
-    component = shallow(<ConnectedIntern store={store}/>)
+    component = muiShallow(<ConnectedIntern store={store}/>)
     expect(component).toMatchSnapshot()
   })
 
-  fit("generates new interns on startup", () => {
-    jest.spyOn(store, 'dispatch')
-    component = muiMount(<ConnectedIntern store={store} />)
-    expect(store.dispatch).toHaveBeenCalledWith({
-      type: 'POPULATE_INTERNS',
-      payload: expect.anything(),
+  describe("with provider", () => {
+    beforeEach(() => {
+      jest.spyOn(store, 'dispatch')
+      component = muiMount(
+        <Provider store={store}>
+          <ConnectedIntern/>
+        </Provider>
+      )
     })
-    expect(component.find('InternCard')).toBePresent()
+
+    it("generates new interns on startup", () => {
+      expect(store.dispatch).toHaveBeenCalledWith({
+        type: 'POPULATE_INTERNS',
+        payload: expect.anything(),
+      })
+      expect(component.find('.intern-card')).toBePresent()
+    })
+
+    it("opens the drawer", () => {
+      const button = component.find('.intern-card').first().find('.match-button')
+      simulateTouchTap(button)
+      expect(store.dispatch).toHaveBeenCalledWith({
+        type: 'SELECT_INTERN',
+        payload: expect.anything(),
+      })
+    })
   })
 })

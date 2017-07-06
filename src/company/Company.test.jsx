@@ -38,7 +38,7 @@ describe('ConnectedCompany', () => {
     expect(component).toMatchSnapshot()
   })
 
-  fit("generates new companies on startup", () => {
+  it("generates new companies on startup", () => {
     jest.spyOn(store, 'dispatch')
     component = muiMount(<ConnectedCompany store={store} />)
     expect(store.dispatch).toHaveBeenCalledWith({

@@ -32,7 +32,7 @@ export class Intern extends React.Component {
 
   render() {
     const isDrawerOpen = this.props.selectedIntern !== undefined
-
+    
     return (
       <div className="intern">
         {_.map(this.props.interns, this.renderIntern)}

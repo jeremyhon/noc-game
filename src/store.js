@@ -1,7 +1,7 @@
 import { createStore } from 'redux'
 import rootReducer from './reducer'
 
-const startStore = (initialState) => {
+export const startStore = (initialState) => {
   return createStore(
     rootReducer,
     initialState,
@@ -9,6 +9,4 @@ const startStore = (initialState) => {
   )
 }
 
-const store = startStore()
-
-export default store
+export default startStore()

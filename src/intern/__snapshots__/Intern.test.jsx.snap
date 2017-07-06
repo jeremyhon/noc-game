@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConnectedCompany matches the snapshot 1`] = `
-<Company
-  companies={Array []}
-  populateCompanies={[Function]}
+exports[`ConnectedIntern matches the snapshot 1`] = `
+<Intern
+  deselectIntern={[Function]}
+  interns={Array []}
+  populateInterns={[Function]}
   store={
     Object {
       "dispatch": [Function],
@@ -32,8 +33,19 @@ exports[`ConnectedCompany matches the snapshot 1`] = `
 />
 `;
 
-exports[`Unconnected Company matches the snapshot 1`] = `
+exports[`Unconnected Intern matches the snapshot 1`] = `
 <div
-  className="company"
-/>
+  className="intern"
+>
+  <Drawer
+    disableSwipeToOpen={false}
+    docked={false}
+    onRequestChange={[Function]}
+    open={false}
+    openSecondary={true}
+    swipeAreaWidth={30}
+    width={250}
+    zDepth={2}
+  />
+</div>
 `;

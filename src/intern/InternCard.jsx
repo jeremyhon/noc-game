@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FlatButton from 'material-ui/FlatButton'
 import skillsPropType from 'components/stats/skillsPropType'
 import Card from 'components/card'
 
@@ -18,7 +19,15 @@ const InternCard = (props) => (
     title={renderTitle(props.name, props.gender)}
     subtitle="Skills"
     skills={props.skills}
-  />
+  >
+    <div className="card-action">
+      <FlatButton
+        label="match"
+        backgroundColor="#00BCD4"
+        labelStyle={{color: "#FFF"}}
+      />
+    </div>
+  </Card>
 )
 
 InternCard.propTypes = {

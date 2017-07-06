@@ -11,6 +11,7 @@ const Card = (props) => (
     <CardText style={{padding: 0}}>
       <SkillsContainer subtitle={props.subtitle} skills={props.skills} />
     </CardText>
+    {props.children}
   </MuiCard>
 )
 
@@ -19,6 +20,7 @@ Card.defaultProps = {
 }
 
 Card.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
   title: PropTypes.node.isRequired,
   subtitle: PropTypes.string.isRequired,

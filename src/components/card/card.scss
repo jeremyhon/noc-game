@@ -1,10 +1,16 @@
+@import "../../styles/variables";
+
 .card {
   max-width: 20em;
   margin: auto;
-  margin-top: 1em;
-  padding: 16px;
+  margin-top: $global-padding;
+  padding: $global-padding;
 }
 
 .card-title {
   padding: 0;
+}
+
+.card-action {
+  text-align: right;
 }

@@ -1,6 +1,8 @@
+@import "../styles/variables";
+
 .about {
   text-align: left;
   margin: auto;
-  padding: 10px;
+  padding: $global-padding;
   max-width: 600px;
 }

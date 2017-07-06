@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import FlatButton from 'material-ui/FlatButton'
+
+import { selectIntern } from '../actions'
 import skillsPropType from 'components/stats/skillsPropType'
 import Card from 'components/card'
 
@@ -25,15 +28,21 @@ const InternCard = (props) => (
         label="match"
         backgroundColor="#00BCD4"
         labelStyle={{color: "#FFF"}}
+        onTouchTap={() => props.selectIntern(props.id)}
       />
     </div>
   </Card>
 )
 
 InternCard.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   gender: PropTypes.oneOf(['M', 'F']).isRequired,
   skills: skillsPropType.isRequired,
 }
 
-export default InternCard
+const mapDispatchToProps = {
+  selectIntern,
+}
+
+export default connect(undefined, mapDispatchToProps)(InternCard)

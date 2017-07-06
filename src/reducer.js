@@ -4,6 +4,7 @@ export const defaultState = {
   time: 0,
   interns: [],
   companies: [],
+  selectedInternId: ""
 }
 
 export default (state = defaultState, {type, payload}) => {
@@ -22,6 +23,10 @@ export default (state = defaultState, {type, payload}) => {
     return { ...state, companies }
   case 'POPULATE_COMPANIES':
     return { ...state, companies: payload.companies }
+  case 'SELECT_INTERN':
+    return { ...state, selectedInternId: payload.selectedInternId }
+  case 'DESELECT_INTERN':
+    return { ...state, selectedInternId: -1 }
   default:
     return state
   }

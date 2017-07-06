@@ -1,4 +1,5 @@
 import Chance from 'chance'
+import uuidv4 from 'uuid/v4'
 
 import { genders } from './data'
 import generateSkills from './skills'
@@ -18,12 +19,14 @@ const getName = (gender) => {
 
 const generateIntern = () => {
   const gender = randomIndex(genders) //assigning gender lol
+  const id = uuidv4();
   const name = getName(gender)
   const skills = generateSkills()
 
   return {
-    name,
     gender,
+    id,
+    name,
     skills,
   }
 }

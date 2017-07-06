@@ -5,6 +5,15 @@ import generateCompany from 'lib/company'
 
 const boilerPlateAction = (type, payload) => ({ type, payload })
 
+export const deselectIntern = () => boilerPlateAction(
+  'DESELECT_INTERN'
+)
+
+export const selectIntern = (id) => boilerPlateAction(
+  'SELECT_INTERN',
+  { selectedInternId: id }
+)
+
 export const addNewIntern = () => boilerPlateAction(
   'ADD_NEW_INTERN',
   { intern: generateIntern() }

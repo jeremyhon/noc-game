@@ -26,7 +26,7 @@ export default (state = defaultState, {type, payload}) => {
   case 'SELECT_INTERN':
     return { ...state, selectedInternId: payload.selectedInternId }
   case 'DESELECT_INTERN':
-    return { ...state, selectedInternId: -1 }
+    return { ...state, selectedInternId: "" }
   default:
     return state
   }

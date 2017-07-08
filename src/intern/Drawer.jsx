@@ -41,6 +41,7 @@ class Drawer extends React.Component {
             backgroundColor="#B2EBF2"
             className="match-button"
             label="match"
+            onTouchTap={() => {}}
           />
         </div>
       </Card>

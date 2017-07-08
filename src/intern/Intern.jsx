@@ -5,17 +5,11 @@ import { connect } from 'react-redux'
 
 import Drawer from './Drawer'
 import InternCard from './InternCard'
-import { populateInterns } from '../actions'
 import './Intern.css'
 
 export class Intern extends React.Component {
   static propTypes = {
     interns: PropTypes.array.isRequired,
-    populateInterns: PropTypes.func.isRequired,
-  }
-
-  componentDidMount = () => {
-    this.props.populateInterns(3)
   }
 
   renderIntern = (intern, key) => (
@@ -36,8 +30,4 @@ const mapStateToProps = (state) => ({
   interns: state.interns,
 })
 
-const mapDispatchToProps = {
-  populateInterns,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Intern)
+export default connect(mapStateToProps)(Intern)

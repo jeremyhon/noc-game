@@ -26,9 +26,8 @@ export const InternCard = (props) => (
     <div className="card-action">
       <FlatButton
         className="match-button"
-        label="match"
-        backgroundColor="#00BCD4"
-        labelStyle={{color: "#FFF"}}
+        backgroundColor="#B2EBF2"
+        label="match with company"
         onTouchTap={() => props.selectIntern(props.id)}
       />
     </div>

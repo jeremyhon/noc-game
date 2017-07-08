@@ -1,0 +1,28 @@
+@import "../styles/variables";
+
+.drawer {
+}
+
+.drawer-card {
+  text-align: left;
+  padding: $global-padding;
+}
+
+.drawer-card-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.drawer-card-title {
+  font-size: 24px;
+}
+
+.drawer-card-skills {
+
+}
+
+.drawer-card-action {
+  text-align: right;
+  padding-top: $global-padding;
+}

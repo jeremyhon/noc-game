@@ -4,16 +4,10 @@ import _ from 'lodash'
 import { connect } from 'react-redux'
 
 import CompanyCard from './CompanyCard'
-import { populateCompanies } from '../actions'
 
 export class Company extends React.Component {
   static propTypes = {
     companies: PropTypes.array.isRequired,
-    populateCompanies: PropTypes.func.isRequired,
-  }
-
-  componentDidMount = () => {
-    this.props.populateCompanies(3)
   }
 
   renderCompany = (company, key) => {
@@ -37,8 +31,4 @@ const mapStateToProps = (state) => ({
   companies: state.companies
 })
 
-const mapDispatchToProps = {
-  populateCompanies
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Company)
+export default connect(mapStateToProps)(Company)

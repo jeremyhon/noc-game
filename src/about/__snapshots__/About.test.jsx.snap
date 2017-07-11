@@ -21,5 +21,12 @@ exports[`matches the snapshot 1`] = `
   >
     Jeremy Hon
   </a>
+  <br />
+  <br />
+  <a
+    href="https://www.github.com/jeremyhon/noc-game"
+  >
+    GitHub Repo
+  </a>
 </div>
 `;

@@ -8,9 +8,9 @@ import Clock from './Clock'
 import './Navbar.css'
 
 export const titleMap = {
-  "/": "Interns",
-  "/companies": "Companies",
-  "/about": "About"
+  "/noc-game/": "Interns",
+  "/noc-game/companies": "Companies",
+  "/noc-game/about": "About"
 }
 
 class Navbar extends React.Component {

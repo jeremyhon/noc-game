@@ -13,6 +13,17 @@ import * as engine from 'lib/engine'
 import { populateInterns, populateCompanies } from 'actions'
 import './App.css'
 
+const AppRoutes = ({ match }) => {
+  return (
+    <Switch>
+      <Route exact path={match.url} component={Intern} />
+      <Route path={`${match.url}/about`} component={About} />
+      <Route path={`${match.url}/companies`} component={Company} />
+      <Route component={NotFound} />
+    </Switch>
+  )
+}
+
 export class App extends React.Component {
   componentDidMount = () => {
     //start your engineeesssss~
@@ -26,12 +37,7 @@ export class App extends React.Component {
       <BrowserRouter>
         <div className="app">
             <Navbar />
-            <Switch>
-              <Route exact path="/" component={Intern} />
-              <Route path="/about" component={About} />
-              <Route path="/companies" component={Company} />
-              <Route component={NotFound} />
-            </Switch>
+            <Route path="/noc-game" component={AppRoutes} />
         </div>
       </BrowserRouter>
     )

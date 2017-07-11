@@ -1,7 +1,6 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
-import { muiMount } from '../testUtils'
 import store from '../store'
 import ConnectedCompany, { Company } from './Company'
 

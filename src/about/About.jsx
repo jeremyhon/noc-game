@@ -12,7 +12,9 @@ export default class About extends React.Component {
         <br/>
         Here you go.<br/>
         <br />
-        Created by <a href="http://jeremyhon.github.io">Jeremy Hon</a>
+        Created by <a href="http://jeremyhon.github.io">Jeremy Hon</a><br />
+        <br />
+        <a href="https://www.github.com/jeremyhon/noc-game">GitHub Repo</a>
       </div>
     )
   }

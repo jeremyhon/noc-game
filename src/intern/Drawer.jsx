@@ -9,7 +9,7 @@ import FlatButton from 'material-ui/FlatButton'
 import { deselectIntern } from '../actions'
 import './Drawer.css'
 
-class Drawer extends React.Component {
+export class Drawer extends React.Component {
   static propTypes = {
     companies: PropTypes.array.isRequired,
     deselectIntern: PropTypes.func.isRequired,

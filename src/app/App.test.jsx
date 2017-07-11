@@ -44,3 +44,17 @@ it('runs the event system', () => {
     payload: expect.anything()
   })
 })
+
+it('populates interns and companies', () => {
+  const store = require('../store').default
+  jest.spyOn(store, 'dispatch')
+
+  mount(<App />)
+
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: 'POPULATE_INTERNS', payload: expect.anything()
+  })
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: 'POPULATE_COMPANIES', payload: expect.anything()
+  })
+})

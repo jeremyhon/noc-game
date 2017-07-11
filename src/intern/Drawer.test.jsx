@@ -1,9 +1,8 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import { Provider } from 'react-redux'
 
 import generateCompany from 'lib/company'
-import { muiMount, muiShallow, simulateTouchTap } from '../testUtils'
+import { muiMount, muiShallow } from '../testUtils'
 import { startStore } from '../store'
 import ConnectedDrawer, { Drawer } from './Drawer'
 
@@ -21,7 +20,7 @@ describe('Unconnected Drawer', () => {
   })
 
   it("matches the snapshot", () => {
-    component = shallow(<Drawer {...props} />)
+    component = muiShallow(<Drawer {...props} />)
     expect(component).toMatchSnapshot()
   })
 
@@ -39,7 +38,7 @@ describe('ConnectedDrawer', () => {
   })
 
   it("matches the snapshot", () => {
-    component = muiShallow(<ConnectedIntern store={store}/>)
+    component = muiShallow(<ConnectedDrawer store={store}/>)
     expect(component).toMatchSnapshot()
   })
 
@@ -48,26 +47,18 @@ describe('ConnectedDrawer', () => {
       jest.spyOn(store, 'dispatch')
       component = muiMount(
         <Provider store={store}>
-          <ConnectedIntern/>
+          <ConnectedDrawer />
         </Provider>
       )
     })
 
-    it("generates new interns on startup", () => {
-      expect(store.dispatch).toHaveBeenCalledWith({
-        type: 'POPULATE_INTERNS',
-        payload: expect.anything(),
-      })
-      expect(component.find('.intern-card')).toBePresent()
-    })
-
     it("opens the drawer", () => {
-      const button = component.find('.intern-card').first().find('.match-button')
-      simulateTouchTap(button)
-      expect(store.dispatch).toHaveBeenCalledWith({
-        type: 'SELECT_INTERN',
-        payload: expect.anything(),
-      })
+      expect(component.find("Drawer").at(1).props().open).toEqual(false)
+
+      store.dispatch({type: 'SELECT_INTERN', payload: "abc"})
+
+      expect(component.find("Drawer")).toBePresent()
+      expect(component.find("Drawer").at(1).props().open).toEqual(true)
     })
   })
 })

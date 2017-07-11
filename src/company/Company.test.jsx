@@ -21,11 +21,6 @@ describe('Unconnected Company', () => {
     component = shallow(<Company {...props} />)
     expect(component).toMatchSnapshot()
   })
-
-  it("generates new companies on startup", () => {
-    component = mount(<Company {...props} />)
-    expect(props.populateCompanies).toHaveBeenCalled()
-  })
 })
 
 describe('ConnectedCompany', () => {
@@ -36,15 +31,5 @@ describe('ConnectedCompany', () => {
   it("matches the snapshot", () => {
     component = shallow(<ConnectedCompany store={store}/>)
     expect(component).toMatchSnapshot()
-  })
-
-  it("generates new companies on startup", () => {
-    jest.spyOn(store, 'dispatch')
-    component = muiMount(<ConnectedCompany store={store} />)
-    expect(store.dispatch).toHaveBeenCalledWith({
-      type: 'POPULATE_COMPANIES',
-      payload: expect.anything(),
-    })
-    expect(component.find('CompanyCard')).toBePresent()
   })
 })

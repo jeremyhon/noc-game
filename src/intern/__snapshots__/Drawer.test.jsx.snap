@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ConnectedIntern matches the snapshot 1`] = `
-<Intern
-  dispatch={[Function]}
-  interns={Array []}
+exports[`ConnectedDrawer matches the snapshot 1`] = `
+<Drawer
+  companies={Array []}
+  deselectIntern={[Function]}
+  selectedInternId=""
   store={
     Object {
       "dispatch": [Function],
@@ -32,10 +33,16 @@ exports[`ConnectedIntern matches the snapshot 1`] = `
 />
 `;
 
-exports[`Unconnected Intern matches the snapshot 1`] = `
-<div
-  className="intern"
->
-  <Connect(Drawer) />
-</div>
+exports[`Unconnected Drawer matches the snapshot 1`] = `
+<Drawer
+  className="drawer"
+  disableSwipeToOpen={false}
+  docked={false}
+  onRequestChange={[Function]}
+  open={false}
+  openSecondary={true}
+  swipeAreaWidth={30}
+  width={270}
+  zDepth={2}
+/>
 `;

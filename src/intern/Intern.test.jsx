@@ -1,12 +1,14 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import { Provider } from 'react-redux'
 
 import { muiMount, muiShallow, simulateTouchTap } from '../testUtils'
 import { startStore } from '../store'
+import generateIntern from '../lib/intern'
 import ConnectedIntern, { Intern } from './Intern'
 
 let component
+let store
 
 describe('Unconnected Intern', () => {
   let props
@@ -22,17 +24,6 @@ describe('Unconnected Intern', () => {
   it("matches the snapshot", () => {
     component = shallow(<Intern {...props} />)
     expect(component).toMatchSnapshot()
-  })
-
-  it("generates new interns on startup", () => {
-    component = muiMount(<Intern {...props} />)
-    expect(props.populateInterns).toHaveBeenCalled()
-  })
-
-  it("closes the drawer", () => {
-    component = muiMount(<Intern {...props} />)
-    component.instance().changeDrawerState(false, 'swipe')
-    expect(props.deselectIntern).toHaveBeenCalled()
   })
 })
 
@@ -57,15 +48,8 @@ describe('ConnectedIntern', () => {
       )
     })
 
-    it("generates new interns on startup", () => {
-      expect(store.dispatch).toHaveBeenCalledWith({
-        type: 'POPULATE_INTERNS',
-        payload: expect.anything(),
-      })
-      expect(component.find('.intern-card')).toBePresent()
-    })
-
     it("opens the drawer", () => {
+      store.dispatch({type: 'POPULATE_INTERNS', payload: { interns: [generateIntern()] }})
       const button = component.find('.intern-card').first().find('.match-button')
       simulateTouchTap(button)
       expect(store.dispatch).toHaveBeenCalledWith({

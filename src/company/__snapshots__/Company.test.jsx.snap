@@ -3,7 +3,7 @@
 exports[`ConnectedCompany matches the snapshot 1`] = `
 <Company
   companies={Array []}
-  populateCompanies={[Function]}
+  dispatch={[Function]}
   store={
     Object {
       "dispatch": [Function],

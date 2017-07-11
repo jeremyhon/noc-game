@@ -11,32 +11,8 @@ exports[`matches the snapshot 1`] = `
     }
   }
 >
-  <BrowserRouter>
-    <MuiThemeProvider>
-      <div
-        className="app"
-      >
-        <withRouter(Navbar) />
-        <Switch>
-          <Route
-            component={[Function]}
-            exact={true}
-            path="/"
-          />
-          <Route
-            component={[Function]}
-            path="/about"
-          />
-          <Route
-            component={[Function]}
-            path="/companies"
-          />
-          <Route
-            component={[Function]}
-          />
-        </Switch>
-      </div>
-    </MuiThemeProvider>
-  </BrowserRouter>
+  <MuiThemeProvider>
+    <Connect(App) />
+  </MuiThemeProvider>
 </Provider>
 `;

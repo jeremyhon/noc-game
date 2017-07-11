@@ -26,17 +26,13 @@ exports[`matches the snapshot 1`] = `
     className="card-action"
   >
     <FlatButton
-      backgroundColor="#00BCD4"
+      backgroundColor="#B2EBF2"
       className="match-button"
       disabled={false}
       fullWidth={false}
-      label="match"
+      label="match with company"
       labelPosition="after"
-      labelStyle={
-        Object {
-          "color": "#FFF",
-        }
-      }
+      labelStyle={Object {}}
       onKeyboardFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}

@@ -19,7 +19,7 @@ const getName = (gender) => {
 
 const generateIntern = () => {
   const gender = randomIndex(genders) //assigning gender lol
-  const id = uuidv4();
+  const id = uuidv4()
   const name = getName(gender)
   const skills = generateSkills()
 

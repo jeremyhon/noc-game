@@ -8,9 +8,24 @@ import Clock from './Clock'
 import './Navbar.css'
 
 export const titleMap = {
-  "/noc-game/": "Interns",
+  "/noc-game": "Interns",
   "/noc-game/companies": "Companies",
   "/noc-game/about": "About"
+}
+
+const matchUrl = (subject, toMatch) => {
+  const removeTrailingSlashAndWhitespace = (str) => _.replace(str, /\/\s*$/, "")
+  const tempSubject = removeTrailingSlashAndWhitespace(subject)
+  const tempToMatch = removeTrailingSlashAndWhitespace(toMatch)
+  return tempSubject === tempToMatch
+}
+
+const findTitleByUrl = (titleMap, url) => {
+  const title = _.find(titleMap, (_, titleUrl) => matchUrl(url, titleUrl))
+  if (title) {
+    return title
+  }
+  return "Not Found"
 }
 
 class Navbar extends React.Component {
@@ -24,7 +39,7 @@ class Navbar extends React.Component {
     return (
       <AppBar
         className="navbar"
-        title={_.get(titleMap, this.props.location.pathname, "Not Found")}
+        title={findTitleByUrl(titleMap, this.props.location.pathname)}
         iconElementLeft={<Menu />}
         iconElementRight={<Clock />}
       />

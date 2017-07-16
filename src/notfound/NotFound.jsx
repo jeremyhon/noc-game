@@ -8,7 +8,10 @@ export default class NotFound extends React.Component {
   render() {
     return (
       <div>
-        {"Oops! This page doesn't exist!"}
+        <br />
+        "Oops! This page doesn't exist!"
+        <br />
+        Click <a href="/noc-game">here</a> to go back.
       </div>
     )
   }

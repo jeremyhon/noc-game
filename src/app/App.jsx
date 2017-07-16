@@ -19,7 +19,6 @@ const AppRoutes = ({ match }) => {
       <Route exact path={match.url} component={Intern} />
       <Route path={`${match.url}/about`} component={About} />
       <Route path={`${match.url}/companies`} component={Company} />
-      <Route component={NotFound} />
     </Switch>
   )
 }
@@ -36,8 +35,11 @@ export class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="app">
-            <Navbar />
+          <Navbar />
+          <Switch>
             <Route path="/noc-game" component={AppRoutes} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </BrowserRouter>
     )

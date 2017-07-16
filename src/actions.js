@@ -5,8 +5,9 @@ import generateCompany from 'lib/company'
 
 const boilerPlateAction = (type, payload) => ({ type, payload })
 
-export const matchIntern = (internId, company) => boilerPlateAction(
-  'MATCH_INTERN'
+export const matchIntern = (internId, companyId) => boilerPlateAction(
+  'MATCH_INTERN',
+  { internId, companyId }
 )
 
 export const deselectIntern = () => boilerPlateAction(

@@ -3,40 +3,10 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import MuiDrawer from 'material-ui/Drawer'
-import { Card } from 'material-ui/Card'
-import FlatButton from 'material-ui/FlatButton'
 
+import Minicard from 'components/minicard'
 import { deselectIntern } from '../actions'
 import './Drawer.css'
-
-const MiniCard = (props) => {
-  return (
-    <Card className="drawer-card" style={{textAlign:"left"}}>
-      <div className="drawer-card-container">
-        <span className="drawer-card-title">
-          {props.name}
-        </span>
-        <span className="drawer-card-skills">
-          {props.content}
-        </span>
-      </div>
-      <div className="drawer-card-action">
-        <FlatButton
-          backgroundColor="#B2EBF2"
-          className="match-button"
-          label="match"
-          onTouchTap={props.onMatch}
-        />
-      </div>
-    </Card>
-  )
-}
-
-MiniCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  onMatch: PropTypes.func.isRequired,
-}
 
 export class Drawer extends React.Component {
   static propTypes = {
@@ -56,11 +26,11 @@ export class Drawer extends React.Component {
     D:${company.needs.design}
     T:${company.needs.technical}`
     return (
-      <MiniCard
+      <Minicard
         key={company.name}
+        id={company.id}
         content={skills}
         name={company.name}
-        onMatch={() => {}}
       />
     )
   }

@@ -7,8 +7,18 @@ export const defaultState = {
   selectedInternId: ""
 }
 
+const addInternToCompany = ({companies}, {internId, companyId}) => {
+  return _.map(companies, (company) => {
+    if (company.id !== companyId) {
+      return company
+    }
+    const interns = _.concat(company.interns, internId)
+    return { ...company, interns }
+  })
+}
+
 export default (state = defaultState, {type, payload}) => {
-  let interns, companies
+  let interns, companies, newCompanies
 
   switch (type) {
   case 'ENGINE_TICK':
@@ -27,6 +37,9 @@ export default (state = defaultState, {type, payload}) => {
     return { ...state, selectedInternId: payload.selectedInternId }
   case 'DESELECT_INTERN':
     return { ...state, selectedInternId: "" }
+  case 'MATCH_INTERN':
+    newCompanies = addInternToCompany(state, payload)
+    return { ...state, companies: newCompanies }
   default:
     return state
   }

@@ -5,6 +5,8 @@ import CompanyCard from './CompanyCard'
 
 it("matches the snapshot", () => {
   const props = {
+    id: "abcdefg",
+    interns: [],
     name: "EVE ONLINE",
     needs: {
       business: 1,

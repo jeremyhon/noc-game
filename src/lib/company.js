@@ -7,8 +7,10 @@ const generateCompany = () => {
   const id = uuidv4()
   const name = generateCompanyName()
   const needs = generateSkills()
+  const interns = []
   return {
     id,
+    interns,
     name,
     needs,
   }

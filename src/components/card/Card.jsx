@@ -10,8 +10,8 @@ const Card = (props) => (
     <CardTitle style={{padding: 0}} title={props.title} />
     <CardText style={{padding: 0}}>
       <SkillsContainer subtitle={props.subtitle} skills={props.skills} />
+      {props.children}
     </CardText>
-    {props.children}
   </MuiCard>
 )
 

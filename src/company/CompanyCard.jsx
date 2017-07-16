@@ -11,11 +11,14 @@ const CompanyCard = (props) => {
       title={props.name}
       subtitle="Needs"
       skills={props.needs}
-    />
+    >
+      {props.interns}
+    </Card>
   )
 }
 
 CompanyCard.propTypes = {
+  interns: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,
   needs: skillsPropType.isRequired,
 }

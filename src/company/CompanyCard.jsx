@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 
 import Card from 'components/card'
 import skillsPropType from 'components/stats/skillsPropType'
+import InternList from './InternList'
 
-const CompanyCard = (props) => {
+const CompanyCard = ({name, needs, interns}) => {
   return (
     <Card
       className="company-card"
-      title={props.name}
+      title={name}
       subtitle="Needs"
-      skills={props.needs}
+      skills={needs}
     >
-      {props.interns}
+      { !_.isEmpty(interns) && <InternList internIds={interns} /> }
     </Card>
   )
 }

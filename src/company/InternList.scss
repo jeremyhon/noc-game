@@ -1,0 +1,27 @@
+@import "../styles/variables";
+
+.intern-container{
+  p {
+    margin: 0;
+    display: flex;
+  }
+
+  span {
+    text-align: left;
+    width: 50%;
+  }
+
+  .intern-subtitle {
+    text-align: left;
+    padding-left: 2*$global-padding;
+  }
+
+  .company-intern {
+    margin: auto;
+    text-align: center;
+  }
+  //
+  // .stat-value {
+  //   padding-left: $global-padding;
+  // }
+}

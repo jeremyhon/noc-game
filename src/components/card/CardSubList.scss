@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+.card-container{
+  p {
+    margin: 0;
+    display: flex;
+  }
+
+  span {
+    text-align: left;
+    width: 50%;
+  }
+
+  .card-subtitle {
+    text-align: left;
+    padding-left: 2*$global-padding;
+  }
+
+  .list-key {
+    padding-left: 5*$global-padding;
+  }
+
+  .list-value {
+    padding-left: $global-padding;
+  }
+}

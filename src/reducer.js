@@ -17,8 +17,17 @@ const addInternToCompany = ({companies}, {internId, companyId}) => {
   })
 }
 
+const markInternAsMatched = ({interns}, {internId}) => {
+  return _.map(interns, (intern) => {
+    if (intern.id !== internId) {
+      return intern
+    }
+    return { ...intern, matched: true }
+  })
+}
+
 export default (state = defaultState, {type, payload}) => {
-  let interns, companies, newCompanies
+  let interns, companies
 
   switch (type) {
   case 'ENGINE_TICK':
@@ -38,8 +47,14 @@ export default (state = defaultState, {type, payload}) => {
   case 'DESELECT_INTERN':
     return { ...state, selectedInternId: "" }
   case 'MATCH_INTERN':
-    newCompanies = addInternToCompany(state, payload)
-    return { ...state, companies: newCompanies }
+    companies = addInternToCompany(state, payload)
+    interns = markInternAsMatched(state, payload)
+    return {
+      ...state,
+      companies,
+      interns,
+      selectedInternId: "",
+    }
   default:
     return state
   }

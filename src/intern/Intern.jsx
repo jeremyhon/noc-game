@@ -26,8 +26,11 @@ export class Intern extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  interns: state.interns,
-})
+const mapStateToProps = ({interns}) => {
+  const freeInterns = _.reject(interns, ['matched', true])
+  return {
+    interns: freeInterns,
+  }
+}
 
 export default connect(mapStateToProps)(Intern)

@@ -24,7 +24,7 @@ InternList.propTypes = {
 }
 
 const mapStateToProps = ({interns}, {internIds}) => {
-  const findInternNameById = (internId) => _.find(interns, ["id", internId]).name
+  const findInternNameById = (internId) => _.find(interns, ['id', internId]).name
   const selectedInternNames = _.map(internIds, findInternNameById)
   return { selectedInternNames }
 }

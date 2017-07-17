@@ -17,7 +17,7 @@ const getName = (gender) => {
   }
 }
 
-const generateIntern = () => {
+export const generateIntern = () => {
   const gender = randomIndex(genders) //assigning gender lol
   const id = uuidv4()
   const name = getName(gender)

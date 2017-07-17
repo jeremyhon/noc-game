@@ -1,11 +1,11 @@
 import * as actions from './actions'
 
 jest.mock('lib/intern', () => {
-  return jest.fn(() => "lulz")
+  return jest.fn(() => 'lulz')
 })
 
 jest.mock('lib/company', () => {
-  return jest.fn(() => "ggwp")
+  return jest.fn(() => 'ggwp')
 })
 
 const boilerPlateAction = (type, payload) => ({ type, payload })
@@ -16,14 +16,14 @@ beforeEach(() => {
 
 it('should generate a new intern action', () => {
   const generateIntern = require('lib/intern')
-  const expectedAction = boilerPlateAction('ADD_NEW_INTERN', {intern:"lulz"})
+  const expectedAction = boilerPlateAction('ADD_NEW_INTERN', {intern:'lulz'})
   expect(actions.addNewIntern()).toEqual(expectedAction)
   expect(generateIntern).toHaveBeenCalled()
 })
 
 it('should generate a new company action', () => {
   const generateCompany = require('lib/company')
-  const expectedAction = boilerPlateAction('ADD_NEW_COMPANY', {company:"ggwp"})
+  const expectedAction = boilerPlateAction('ADD_NEW_COMPANY', {company:'ggwp'})
   expect(actions.addNewCompany()).toEqual(expectedAction)
   expect(generateCompany).toHaveBeenCalled()
 })

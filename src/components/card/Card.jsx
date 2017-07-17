@@ -16,7 +16,7 @@ const Card = (props) => (
 )
 
 Card.defaultProps = {
-  className: ""
+  className: ''
 }
 
 Card.propTypes = {

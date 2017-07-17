@@ -20,6 +20,7 @@ class Menu extends React.Component {
     return (
       <MenuItem
         key={title}
+        className={`${_.lowerCase(title)}-nav`}
         disabled={this.props.location.pathname === path}
         containerElement={<NavLink to={path} />}
         primaryText={title}
@@ -36,6 +37,7 @@ class Menu extends React.Component {
 
     return (
       <IconMenu
+        className="menu-icon"
         iconButtonElement={MenuButton}
         anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
         targetOrigin={{ horizontal: 'left', vertical: 'top' }}

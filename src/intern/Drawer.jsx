@@ -36,7 +36,7 @@ export class Drawer extends React.Component {
   }
 
   render() {
-    const isDrawerOpen = this.props.selectedInternId !== ""
+    const isDrawerOpen = this.props.selectedInternId !== ''
 
     return (
       <MuiDrawer

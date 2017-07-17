@@ -2,7 +2,20 @@
 
 exports[`ConnectedCompany matches the snapshot 1`] = `
 <Company
-  companies={Array []}
+  companies={
+    Array [
+      Object {
+        "id": "abcd",
+        "interns": Array [],
+        "name": "Umbrella Corp",
+        "needs": Object {
+          "business": 0,
+          "design": 0,
+          "technical": 0,
+        },
+      },
+    ]
+  }
   dispatch={[Function]}
   store={
     Object {

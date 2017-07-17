@@ -12,7 +12,9 @@ exports[`matches the snapshot 1`] = `
   }
 >
   <MuiThemeProvider>
-    <Connect(App) />
+    <BrowserRouter>
+      <withRouter(Connect(App)) />
+    </BrowserRouter>
   </MuiThemeProvider>
 </Provider>
 `;

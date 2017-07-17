@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Provider, connect } from 'react-redux'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import store from 'store'
@@ -33,15 +34,13 @@ export class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div className="app">
-          <Navbar />
-          <Switch>
-            <Route path="/noc-game" component={AppRoutes} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </BrowserRouter>
+      <div className="app">
+        <Navbar />
+        <Switch>
+          <Route path="/noc-game" component={AppRoutes} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
     )
   }
 }
@@ -51,18 +50,29 @@ const mapDispatchToProps = {
   populateCompanies,
 }
 
-const ConnectedApp = connect(undefined, mapDispatchToProps)(App)
+export const ConnectedApp = withRouter(connect(undefined, mapDispatchToProps)(App))
 
 class Framework extends React.Component {
   render() {
+    const { Router } = this.props
     return (
       <Provider store={store}>
         <MuiThemeProvider>
-          <ConnectedApp />
+          <Router>
+            <ConnectedApp />
+          </Router>
         </MuiThemeProvider>
       </Provider>
     )
   }
+}
+
+Framework.propTypes = {
+  Router: PropTypes.func
+}
+
+Framework.defaultProps = {
+  Router: BrowserRouter
 }
 
 export default Framework

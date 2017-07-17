@@ -3,11 +3,11 @@ import { shallow } from 'enzyme'
 
 import CompanyCard from './CompanyCard'
 
-it("matches the snapshot", () => {
+it('matches the snapshot', () => {
   const props = {
-    id: "abcdefg",
-    interns: [],
-    name: "EVE ONLINE",
+    id: 'abcdefg',
+    interns: ['Valkyrie Asuka'],
+    name: 'EVE ONLINE',
     needs: {
       business: 1,
       technical: 1,

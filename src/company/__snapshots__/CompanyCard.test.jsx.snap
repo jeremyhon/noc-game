@@ -12,5 +12,13 @@ exports[`matches the snapshot 1`] = `
   }
   subtitle="Needs"
   title="EVE ONLINE"
-/>
+>
+  <Connect(InternList)
+    internIds={
+      Array [
+        "Valkyrie Asuka",
+      ]
+    }
+  />
+</Card>
 `;

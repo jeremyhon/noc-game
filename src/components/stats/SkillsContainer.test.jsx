@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import SkillsContainer from './SkillsContainer'
 
-it("matches the snapshot", () => {
+it('matches the snapshot', () => {
   const skills = {
     business: 1,
     design: 1,

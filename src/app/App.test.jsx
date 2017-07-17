@@ -1,60 +1,62 @@
-import React from "react"
-import { mount, shallow } from "enzyme"
-import App from "./App"
+import React from 'react'
+import { mount, shallow } from 'enzyme'
+import App from './App'
 
 import { interval } from 'lib/engine'
 
-it("matches the snapshot", () => {
+it('matches the snapshot', () => {
   expect(shallow(<App />)).toMatchSnapshot()
 })
 
-it("renders without crashing", () => {
+it('renders without crashing', () => {
   mount(<App />)
 })
 
-it('runs the engine and produces tick actions', () => {
-  const store = require('../store').default
-  jest.spyOn(store, 'dispatch')
-  jest.useFakeTimers()
+describe('with store', () => {
+  let store
 
-  // check engine is ticking
-  mount(<App />)
-  jest.runTimersToTime(interval)
-
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: "ENGINE_TICK",
-    payload: {time: 0},
+  beforeEach(() => {
+    store = require('../store').default
+    jest.spyOn(store, 'dispatch')
   })
-})
 
-it('runs the event system', () => {
-  const store = require('../store').default
-  jest.spyOn(store, 'dispatch')
-  require('lodash').random = () => 0
-  jest.useFakeTimers()
+  it('runs the engine and produces tick actions', () => {
+    jest.useFakeTimers()
 
-  mount(<App />)
+    // check engine is ticking
+    mount(<App />)
+    jest.runTimersToTime(interval)
 
-  // fast-forward clock and check events are being created
-  global.performance.now = () => 3000
-  jest.runTimersToTime(interval)
-
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: "ADD_NEW_INTERN",
-    payload: expect.anything()
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: 'ENGINE_TICK',
+      payload: {time: 0},
+    })
   })
-})
 
-it('populates interns and companies', () => {
-  const store = require('../store').default
-  jest.spyOn(store, 'dispatch')
+  it('runs the event system', () => {
+    require('lodash').random = () => 0
+    jest.useFakeTimers()
 
-  mount(<App />)
+    mount(<App />)
 
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'POPULATE_INTERNS', payload: expect.anything()
+    // fast-forward clock and check events are being created
+    global.performance.now = () => 3000
+    jest.runTimersToTime(interval)
+
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: 'ADD_NEW_INTERN',
+      payload: expect.anything()
+    })
   })
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'POPULATE_COMPANIES', payload: expect.anything()
+
+  it('populates interns and companies', () => {
+    mount(<App />)
+
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: 'POPULATE_INTERNS', payload: expect.anything()
+    })
+    expect(store.dispatch).toHaveBeenCalledWith({
+      type: 'POPULATE_COMPANIES', payload: expect.anything()
+    })
   })
 })

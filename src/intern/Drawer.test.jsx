@@ -15,16 +15,16 @@ describe('Unconnected Drawer', () => {
     props = {
       companies: [generateCompany()],
       deselectIntern: jest.fn(),
-      selectedInternId: ""
+      selectedInternId: ''
     }
   })
 
-  it("matches the snapshot", () => {
+  it('matches the snapshot', () => {
     component = muiShallow(<Drawer {...props} />)
     expect(component).toMatchSnapshot()
   })
 
-  it("closes the drawer", () => {
+  it('closes the drawer', () => {
     component = muiMount(<Drawer {...props} />)
     component.instance().changeDrawerState(false, 'swipe')
     expect(props.deselectIntern).toHaveBeenCalled()
@@ -37,12 +37,12 @@ describe('ConnectedDrawer', () => {
     store = startStore()
   })
 
-  it("matches the snapshot", () => {
+  it('matches the snapshot', () => {
     component = muiShallow(<ConnectedDrawer store={store}/>)
     expect(component).toMatchSnapshot()
   })
 
-  describe("with provider", () => {
+  describe('with provider', () => {
     beforeEach(() => {
       jest.spyOn(store, 'dispatch')
       component = muiMount(
@@ -52,13 +52,13 @@ describe('ConnectedDrawer', () => {
       )
     })
 
-    it("opens the drawer", () => {
-      expect(component.find("Drawer").at(1).props().open).toEqual(false)
+    it('opens the drawer', () => {
+      expect(component.find('Drawer').at(1).props().open).toEqual(false)
 
-      store.dispatch({type: 'SELECT_INTERN', payload: "abc"})
+      store.dispatch({type: 'SELECT_INTERN', payload: 'abc'})
 
-      expect(component.find("Drawer")).toBePresent()
-      expect(component.find("Drawer").at(1).props().open).toEqual(true)
+      expect(component.find('Drawer')).toBePresent()
+      expect(component.find('Drawer').at(1).props().open).toEqual(true)
     })
   })
 })

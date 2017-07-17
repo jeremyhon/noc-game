@@ -3,7 +3,7 @@ import _ from 'lodash'
 import generateIntern from 'lib/intern'
 import generateCompany from 'lib/company'
 
-const boilerPlateAction = (type, payload) => ({ type, payload })
+export const boilerPlateAction = (type, payload) => ({ type, payload })
 
 export const matchIntern = (internId, companyId) => boilerPlateAction(
   'MATCH_INTERN',
@@ -24,9 +24,9 @@ export const addNewIntern = () => boilerPlateAction(
   { intern: generateIntern() }
 )
 
-export const addNewCompany = () => boilerPlateAction(
+export const addNewCompany = (company = generateCompany()) => boilerPlateAction(
   'ADD_NEW_COMPANY',
-  { company: generateCompany() },
+  { company },
 )
 
 export const populateInterns = (number) => boilerPlateAction(

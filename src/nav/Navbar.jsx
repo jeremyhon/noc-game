@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { withRouter } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
+
 import Menu from './Menu'
 import Clock from './Clock'
 import './Navbar.css'

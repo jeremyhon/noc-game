@@ -1,13 +1,17 @@
-import { mount, shallow } from 'enzyme';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-dom/test-utils';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { mount, shallow } from 'enzyme'
+import ReactDOM from 'react-dom'
+import TestUtils from 'react-dom/test-utils'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import PropTypes from 'prop-types'
+import { Provider } from 'react-redux'
+
+import store from 'store'
 
 // enzyme MUI Test Helpers
 // - https://github.com/callemall/material-ui/issues/4664
 
-const muiTheme = getMuiTheme();
+const muiTheme = getMuiTheme()
 
 /**
 * MuiMountWithContext
@@ -22,7 +26,7 @@ const muiTheme = getMuiTheme();
 export const muiMount = node => mount(node, {
   context: { muiTheme },
   childContextTypes: { muiTheme: PropTypes.object },
-});
+})
 
 /**
 * MuiShallowWithContext
@@ -37,11 +41,19 @@ export const muiMount = node => mount(node, {
 export const muiShallow = node => shallow(node, {
   context: { muiTheme },
   childContextTypes: { muiTheme: PropTypes.object },
-});
+})
 
 // touch tap event Helpers
 
 export const simulateTouchTap = (element) => {
   const node  = ReactDOM.findDOMNode(element.node)
   TestUtils.Simulate.touchTap(node)
+}
+
+export const providerMuiMount = (component) => {
+  return muiMount(
+    <Provider store={store}>
+      {component}
+    </Provider>
+  )
 }
